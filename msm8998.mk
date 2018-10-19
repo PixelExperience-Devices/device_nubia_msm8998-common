@@ -252,10 +252,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     KcalMod
 
-# Live Wallpapers
+# Wallpapers
 PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
-    librs_jni
+    WallpapersBReel2018
 
 # Media
 PRODUCT_COPY_FILES += \
