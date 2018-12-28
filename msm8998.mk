@@ -148,6 +148,10 @@ PRODUCT_PACKAGES += \
     com.quicinc.cne \
     services-ext
 
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    Dirac 
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
