@@ -1,0 +1,2 @@
+allow qti_init_shell nv_data_file:file getattr;
+set_prop(qti_init_shell, post_boot_prop)

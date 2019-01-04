@@ -1,0 +1,3 @@
+# Perf
+sys.post_boot.                                                u:object_r:post_boot_prop:s0
+
