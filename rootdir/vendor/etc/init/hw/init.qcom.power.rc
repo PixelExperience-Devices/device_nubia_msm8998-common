@@ -1,36 +1,19 @@
-on early-init
-    # Enable sched boost in order to schedule tasks on perf cluster
-    write /proc/sys/kernel/sched_boost 1
 
-on init
-    # Disable UFS powersaving
-    write /sys/devices/soc/1da4000.ufshc/clkscale_enable 0
-    write /sys/devices/soc/1da4000.ufshc/clkgate_enable 0
-    write /sys/devices/soc/1da4000.ufshc/hibern8_on_idle_enable 0
-
-    write /sys/module/lpm_levels/parameters/sleep_disabled Y
-
-    # Set up schedtune
-    write /dev/stune/foreground/schedtune.prefer_idle 1
-    write /dev/stune/top-app/schedtune.boost 10
-    write /dev/stune/top-app/schedtune.prefer_idle 1
-
-    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-
-    # add a cpuset for the camera daemon
-    # we want all cores for camera
-    mkdir /dev/cpuset/camera-daemon 0750 cameraserver cameraserver
-    write /dev/cpuset/camera-daemon/cpus 0-7
-    write /dev/cpuset/camera-daemon/mems 0
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
-    chmod 0660 /dev/cpuset/camera-daemon/tasks
-
-on boot
-    # set default schedtune value for foreground/top-app (only affects EAS)
-    write /dev/stune/foreground/schedtune.prefer_idle 1
-    write /dev/stune/top-app/schedtune.boost 1
-    write /dev/stune/top-app/schedtune.prefer_idle 1
-
+#
+# Copyright (C) 2016 The Android Open-Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 on charger
     # Enable UFS powersaving
     write /sys/devices/soc/1da4000.ufshc/clkscale_enable 1
@@ -55,35 +38,23 @@ on charger
     write /sys/devices/system/cpu/cpu6/online 0
     write /sys/devices/system/cpu/cpu7/online 0
 
-on late-fs
-    # Enable boot time fs tuning (ro like system is on sda, rw like userdata is on sde)
-    write /sys/block/sda/queue/iostats 0
-    write /sys/block/sda/queue/read_ahead_kb 2048
-    write /sys/block/sda/queue/nr_requests 256
-    write /sys/block/sde/queue/iostats 0
-    write /sys/block/sde/queue/read_ahead_kb 2048
-    write /sys/block/sde/queue/nr_requests 256
+on early-init
+    # Enable sched boost in order to schedule tasks on perf cluster
+    write /proc/sys/kernel/sched_boost 1
 
-on property:sys.boot_completed=1
-    # Disable boot time fs tuning
-    write /sys/block/sda/queue/iostats 1
-    write /sys/block/sda/queue/read_ahead_kb 128
-    write /sys/block/sda/queue/nr_requests 128
-    write /sys/block/sde/queue/iostats 1
-    write /sys/block/sde/queue/read_ahead_kb 512
-    write /sys/block/sde/queue/nr_requests 512
+on init
+    # Disable UFS powersaving
+    write /sys/devices/soc/1da4000.ufshc/clkscale_enable 0
+    write /sys/devices/soc/1da4000.ufshc/clkgate_enable 0
+    write /sys/devices/soc/1da4000.ufshc/hibern8_on_idle_enable 0
+    write /sys/module/lpm_levels/parameters/sleep_disabled Y
 
-    # Enable UFS powersaving
-    write /sys/devices/soc/1da4000.ufshc/clkscale_enable 1
-    write /sys/devices/soc/1da4000.ufshc/clkgate_enable 1
-    write /sys/devices/soc/1da4000.ufshc/hibern8_on_idle_enable 1
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
-    # Apply Scheduler and Governor settings for 8998
-
-    # Disable thermal hotplug to switch governor
+    # disable thermal hotplug for thermal
     write /sys/module/msm_thermal/core_control/enabled 0
 
-    # Bring CPUs online
+    # bring back all cores
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
@@ -92,7 +63,7 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu5/online 1
     write /sys/devices/system/cpu/cpu6/online 1
     write /sys/devices/system/cpu/cpu7/online 1
-
+    
     # Setup governor
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
@@ -111,6 +82,38 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/iowait_boost_enable 1
     write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us 500
 
+on boot
+    # set default schedTune value for foreground/top-app (only affects EAS)
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+    write /dev/stune/top-app/schedtune.boost 10
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+
+    # add a cpuset for the camera daemon
+    # we want all cores for camera
+    mkdir /dev/cpuset/camera-daemon 0750 cameraserver cameraserver
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/camera-daemon/mems 0
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+    chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+
+on late-fs
+    # Enable boot time fs tuning (ro like system is on sda, rw like userdata is on sde)
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/sde/queue/iostats 0
+    write /sys/block/sde/queue/read_ahead_kb 2048
+    write /sys/block/sde/queue/nr_requests 256
+
+on property:sys.boot_completed=1
+    # Disable boot time fs tuning
+    write /sys/block/sda/queue/iostats 1
+    write /sys/block/sda/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/nr_requests 128
+    write /sys/block/sde/queue/iostats 1
+    write /sys/block/sde/queue/read_ahead_kb 512
+    write /sys/block/sde/queue/nr_requests 512
 
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
@@ -168,7 +171,6 @@ on property:sys.boot_completed=1
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,51256,150296,200640"
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 162500
-
 
     # Is IOP even still a thing?
     start iop
