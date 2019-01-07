@@ -121,17 +121,6 @@ vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
 vendor/lib64/libtzdrmgenprov.so
 
-
-# ESE-Powermanager
-lib/vendor.qti.esepowermanager@1.0.so
-lib64/vendor.qti.esepowermanager@1.0.so
-vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
-vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc
-vendor/lib/hw/vendor.qti.esepowermanager@1.0-impl.so
-vendor/lib/vendor.qti.esepowermanager@1.0_vendor.so
-vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so
-vendor/lib64/vendor.qti.esepowermanager@1.0_vendor.so
-
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8998.so
 vendor/lib64/hw/gatekeeper.msm8998.so
