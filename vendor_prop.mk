@@ -47,7 +47,7 @@ vendor.audio.use.sw.ape.decoder=true\
 vendor.audio.hw.aac.encoder=true\
 vendor.fm.a2dp.conc.disabled=true\
 vendor.audio.noisy.broadcast.delay=600\
-vendor.audio.offload.pstimeout.secs=3\
+vendor.audio.offload.pstimeout.secs=3
 
 # Battery
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -94,15 +94,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 debug.sf.enable_hwc_vds=1\
 debug.sf.hw=1\
 debug.sf.latch_unsignaled=1\
-debug.gralloc.enable_fb_ubwc=1\
 dev.pm.dyn_samplingrate=1\
 persist.demo.hdmirotationlock=false\
 ro.opengles.version=196610\
-sdm.debug.disable_skip_validate=1\
-sdm.perf_hint_window=50\
 persist.debug.wfd.enable=1\
 persist.sys.wfd.virtual=0\
-persist.hwc.enable_vds=1
+persist.hwc.enable_vds=1\
+vendor.display.disable_rotator_split=1 \
+vendor.display.disable_skip_validate=1 \
+vendor.display.perf_hint_window=50 \
+vendor.gralloc.enable_fb_ubwc=1
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -115,7 +116,7 @@ mmp.enable.3g2=true\
 media.aac_51_output_enabled=true\
 mm.enable.smoothstreaming=true\
 persist.mm.enable.prefetch=true\
-vidc.enc.dcvs.extra-buff-count=2\
+vidc.enc.dcvs.extra-buff-count=2
 
 # IZat
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -131,9 +132,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ro.vendor.extension_library=libqti-perfd-client.so \
 ro.vendor.qti.core_ctl_max_cpu=4 \
 ro.vendor.qti.core_ctl_min_cpu=0 \
-ro.vendor.qti.sys.fw.bg_apps_limit=60 \
-sdm.debug.disable_skip_validate=1 \
-sdm.perf_hint_window=50
+ro.vendor.qti.sys.fw.bg_apps_limit=60 
+
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -142,7 +142,7 @@ persist.dbg.vt_avail_ovr=1\
 persist.vendor.qti.telephony.vt_cam_interface=1\
 persist.dbg.ims_volte_enable=1\
 persist.radio.videopause.mode=1\
-persist.data.iwlan.enable=true\
+persist.data.iwlan.enable=true
 
 # QTI
 PRODUCT_PROPERTY_OVERRIDES += \
