@@ -100,6 +100,7 @@ ro.opengles.version=196610\
 persist.debug.wfd.enable=1\
 persist.sys.wfd.virtual=0\
 persist.hwc.enable_vds=1\
+vendor.display.disable_rotator_downscale=1 \
 vendor.display.disable_rotator_split=1 \
 vendor.display.disable_skip_validate=1 \
 vendor.display.perf_hint_window=50 \
