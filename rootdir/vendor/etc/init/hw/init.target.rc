@@ -76,8 +76,8 @@ on post-fs-data
     
     # create directory for nfc- give nfc the read/write access to
     # the following directory-added by ZTEMT 2015.1.8
-    mkdir /data/nfc 0770 nfc nfc
     mkdir /data/vendor/nfc 0770 nfc nfc
+    mkdir /data/vendor/nfc/param 0770 nfc nfc
 
 on boot
     start rmt_storage
