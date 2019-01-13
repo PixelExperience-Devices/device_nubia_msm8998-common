@@ -29,12 +29,6 @@
 
 import /vendor/etc/init/hw/init.qcom.power.rc
 
-on early-init
-    mkdir /system 0777 root root
-    mkdir /firmware 0771 system system
-    mkdir /bt_firmware 0771 system system
-    mkdir /dsp 0771 media media
-
 on fs
     wait /dev/block/platform/soc/1da4000.ufshc
     symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
