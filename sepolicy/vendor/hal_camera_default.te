@@ -1,3 +1,4 @@
-# rules for nubia camera
-allow hal_camera_default system_data_file:file read;
-allow hal_camera_default self:capability sys_nice;
+typeattribute hal_camera_default data_between_core_and_vendor_violators;
+
+allow hal_camera_default camera_data_file:dir create_dir_perms;
+allow hal_camera_default camera_data_file:file create_file_perms;
