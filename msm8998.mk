@@ -400,6 +400,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
 
+# Vendor properties
+-include $(LOCAL_PATH)/vendor_prop.mk
+
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.patch.level=2018-02-01
