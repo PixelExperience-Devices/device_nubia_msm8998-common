@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,10 @@
 #include <mutex>
 #include <thread>
 
+#include <perfmgr/HintManager.h>
+
+using ::android::perfmgr::HintManager;
+
 enum interaction_state {
     INTERACTION_STATE_UNINITIALIZED,
     INTERACTION_STATE_IDLE,
@@ -29,7 +33,7 @@ enum interaction_state {
 };
 
 struct InteractionHandler {
-    InteractionHandler();
+    InteractionHandler(std::shared_ptr<HintManager> const & hint_manager);
     ~InteractionHandler();
     bool Init();
     void Exit();
@@ -61,7 +65,7 @@ struct InteractionHandler {
     std::unique_ptr<std::thread> mThread;
     std::mutex mLock;
     std::condition_variable mCond;
+    std::shared_ptr<HintManager> mHintManager;
 };
 
 #endif //INTERACTIONHANDLER_H
-

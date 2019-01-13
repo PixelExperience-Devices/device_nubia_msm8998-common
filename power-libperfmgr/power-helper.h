@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2018, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -34,9 +34,6 @@
 extern "C" {
 #endif
 
-#include "hardware/power.h"
-
-
 enum stats_type {
     //Platform Stats
     RPM_MODE_XO = 0,
@@ -56,6 +53,7 @@ enum stats_type {
 
 enum subsystem_type {
     SUBSYSTEM_WLAN = 0,
+    SUBSYSTEM_EASEL,
 
     //Don't add any lines after this line
     SUBSYSTEM_COUNT
@@ -93,15 +91,9 @@ struct stat_pair {
     size_t num_parameters;
 };
 
-
-void power_init(void);
-void power_hint(power_hint_t hint, void *data);
-void power_set_interactive(int on);
-void set_feature(feature_t feature, int state);
 int extract_platform_stats(uint64_t *list);
 int extract_wlan_stats(uint64_t *list);
-
-int is_perf_hint_active(int hint);
+int get_easel_state(unsigned long *current_state);
 
 #ifdef __cplusplus
 }
