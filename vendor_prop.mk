@@ -47,7 +47,8 @@ vendor.audio.use.sw.ape.decoder=true\
 vendor.audio.hw.aac.encoder=true\
 vendor.fm.a2dp.conc.disabled=true\
 vendor.audio.noisy.broadcast.delay=600\
-vendor.audio.offload.pstimeout.secs=3
+vendor.audio.offload.pstimeout.secs=3\
+ro.af.client_heap_size_kbyte=7168
 
 # Battery
 PRODUCT_PROPERTY_OVERRIDES += \
