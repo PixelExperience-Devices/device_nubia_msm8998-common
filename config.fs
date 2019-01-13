@@ -10,12 +10,6 @@ value:2903
 [AID_VENDOR_RFS_SHARED]
 value:2904
 
-[AID_VENDOR_ADPL_ODL]
-value:2905
-
-[AID_VENDOR_QRTR]
-value:2906
-
 [vendor/bin/wcnss_filter]
 mode: 0755
 user: AID_BLUETOOTH
@@ -142,17 +136,6 @@ user:  AID_GPS
 group: AID_GPS
 caps: NET_BIND_SERVICE
 
-[vendor/bin/loc_launcher]
-mode: 0755
-user:  AID_GPS
-group: AID_GPS
-caps: SETUID SETGID
-
-[system/vendor/bin/loc_launcher]
-mode: 0755
-user:  AID_GPS
-group: AID_GPS
-caps: SETUID SETGID
 
 [vendor/bin/xtwifi-client]
 mode: 0755
@@ -160,29 +143,6 @@ user:  AID_GPS
 group: AID_GPS
 caps: NET_BIND_SERVICE BLOCK_SUSPEND WAKE_ALARM
 
-[vendor/bin/sensors.qti]
-mode: 0755
-user: AID_SYSTEM
-group: AID_SYSTEM
-caps: NET_BIND_SERVICE
-
-[firmware/]
-mode: 0771
-user: AID_SYSTEM
-group: AID_SYSTEM
-caps: 0
-
-[firmware/image/*]
-mode: 0771
-user: AID_SYSTEM
-group: AID_SYSTEM
-caps: 0
-
-[vendor/firmware_mnt/image/*]
-mode: 0771
-user: AID_ROOT
-group: AID_SYSTEM
-caps: 0
 
 [bt_firmware/]
 mode: 0771
