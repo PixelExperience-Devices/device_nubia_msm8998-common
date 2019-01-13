@@ -403,9 +403,8 @@ PRODUCT_PACKAGES += \
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_prop.mk
 
-# Vendor security patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.patch.level=2018-02-01
+# Security patch level
+VENDOR_SECURITY_PATCH := 2018-02-01
 
 # Verity
 PRODUCT_SUPPORTS_BOOT_SIGNER := true
