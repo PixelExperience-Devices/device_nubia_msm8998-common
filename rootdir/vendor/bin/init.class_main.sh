@@ -36,20 +36,20 @@ datamode=`getprop persist.data.mode`
 
 case "$baseband" in
     "msm" | "csfb" | "svlte2a" | "mdm" | "mdm2" | "sglte" | "sglte2" | "dsda2" | "unknown" | "dsda3")
-    start qmuxd
+    start vendor.qmuxd
 esac
 
 case "$baseband" in
     "msm" | "csfb" | "svlte2a" | "mdm" | "mdm2" | "sglte" | "sglte2" | "dsda2" | "unknown" | "dsda3" | "sdm" | "sdx")
-    start ipacm-diag
-    start ipacm
+    start vendor.ipacm-diag
+    start vendor.ipacm
     case "$baseband" in
         "svlte2a" | "csfb")
-          start qmiproxy
+          start vendor.qmiproxy
         ;;
         "sglte" | "sglte2" )
           if [ "x$sgltecsfb" != "xtrue" ]; then
-              start qmiproxy
+              start vendor.qmiproxy
           else
               setprop persist.vendor.radio.voice.modem.index 0
           fi
@@ -61,24 +61,24 @@ case "$baseband" in
     multisim=`getprop persist.radio.multisim.config`
 
     if [ "$multisim" = "dsds" ] || [ "$multisim" = "dsda" ]; then
-        start ril-daemon2
+        start vendor.ril-daemon2
     elif [ "$multisim" = "tsts" ]; then
-        start ril-daemon2
-        start ril-daemon3
+        start vendor.ril-daemon2
+        start vendor.ril-daemon3
     fi
 
     case "$datamode" in
         "tethered")
-            start qti
+            start vendor.qti
             start port-bridge
             ;;
         "concurrent")
-            start qti
-            start netmgrd
-            start port-bridge
+            start vendor.qti
+            start vendor.netmgrd
+            start vendor.port-bridge
             ;;
         *)
-            start netmgrd
+            start vendor.netmgrd
             ;;
     esac
 esac

@@ -562,36 +562,36 @@ on post-fs-data
     #Create FTM_AP dir for factory test
     mkdir /data/FTM_AP 0775 system system
 
-service nqnfcinfo /vendor/bin/nqnfcinfo
+service vendor.nqnfcinfo /vendor/bin/nqnfcinfo
     class late_start
     group nfc
     user system
     oneshot
 
-service iop /vendor/bin/iop
+service vendor.iop /vendor/bin/iop
     class main
     user root
     group root
     disabled
     socket iop seqpacket 0666 root system
 
-service qcomsysd /vendor/bin/qcom-system-daemon
+service vendor.qcomsysd /vendor/bin/qcom-system-daemon
     class main
     user root
     group root diag
     disabled
 
 on property:persist.vendor.qcomsysd.enabled=1
-    enable qcomsysd
+    enable vendor.qcomsysd
 
 on property:persist.vendor.qcomsysd.enabled=0
-    stop qcomsysd
+    stop vendor.qcomsysd
 
-service ssr_setup /vendor/bin/ssr_setup
+service vendor.ssr_setup /vendor/bin/ssr_setup
     oneshot
     disabled
 
-service ss_ramdump /vendor/bin/subsystem_ramdump
+service vendor.ss_ramdump /vendor/bin/subsystem_ramdump
     class main
     user system
     group system
@@ -610,12 +610,12 @@ on property:persist.sys.pil_proxy_timeout=*
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
 
 on property:persist.sys.ssr.restart_level=*
-    start ssr_setup
+    start vendor.ssr_setup
 
 on property:persist.sys.ssr.enable_ramdumps=1
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
     mkdir /data/ramdump 770 system system
-    start ss_ramdump
+    start vendor.ss_ramdump
 
 on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
@@ -651,7 +651,7 @@ on property:bluetooth.dun.status=stopped
     stop bt-dun
 
 on property:ro.bluetooth.ftm_enabled=true
-    start ftmd
+    start vendor.ftmd
 
 on property:bluetooth.startbtsnoop=true
     start btsnoop
@@ -665,57 +665,57 @@ on property:bluetooth.startbtlogger=true
 on property:bluetooth.startbtlogger=false
     stop bt_logger
 
-service qcom-c_core-sh  /vendor/bin/init.qcom.class_core.sh
+service vendor.qcom-c_core-sh  /vendor/bin/init.qcom.class_core.sh
     class core
     user root
     oneshot
 
-service qcom-c_main-sh /vendor/bin/init.class_main.sh
+service vendor.qcom-c_main-sh /vendor/bin/init.class_main.sh
     class main
     user root
     oneshot
 
 # nubia remove start cnss_diag
 on property:vold.decrypt=trigger_restart_framework
-    start qcom-c_main-sh
-    start wcnss-service
+    start vendor.qcom-c_main-sh
+    start vendor.wcnss-service
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service cnd /vendor/bin/cnd
+service vendor.cnd /vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
     writepid /dev/cpuset/system-background/tasks
 
-service dpmQmiMgr /vendor/bin/dpmQmiMgr
+service vendor.dpmQmiMgr /vendor/bin/dpmQmiMgr
     class main
     user system
     group radio system
 
-service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
+service vendor.irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root
     oneshot
 
-service rmt_storage /vendor/bin/rmt_storage
+service vendor.rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     shutdown critical
     ioprio rt 0
 
-service tftp_server /vendor/bin/tftp_server
+service vendor.tftp_server /vendor/bin/tftp_server
    class core
    user root
 
 on property:wc_transport.start_hci=true
-    start start_hci_filter
+    start vendor.start_hci_filter
 
 on property:wc_transport.start_hci=false
-    stop start_hci_filter
+    stop vendor.start_hci_filter
 
-service start_hci_filter /vendor/bin/wcnss_filter
+service vendor.start_hci_filter /vendor/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth diag system wakelock
@@ -750,14 +750,14 @@ service bt_logger /system/bin/bt_logger
    disabled
    oneshot
 
-service ftmd /system/bin/logwrapper /vendor/bin/ftmdaemon
+service vendor.ftmd /system/bin/logwrapper /vendor/bin/ftmdaemon
     class late_start
     user root
     group bluetooth net_bt_admin misc diag net_bt
     disabled
     oneshot
 
-service port-bridge /vendor/bin/port-bridge
+service vendor.port-bridge /vendor/bin/port-bridge
     class main
     user radio system
     group radio system inet
@@ -771,18 +771,18 @@ service qmiproxy /system/bin/qmiproxy
     disabled
 
 # QMUX must be in multiple groups to support external process connections
-service qmuxd /vendor/bin/qmuxd
+service vendor.qmuxd /vendor/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps nfc diag
     disabled
 
-service netmgrd /vendor/bin/netmgrd
+service vendor.netmgrd /vendor/bin/netmgrd
     class main
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service ipacm-diag /vendor/bin/ipacm-diag
+service vendor.ipacm-diag /vendor/bin/ipacm-diag
     class main
     user radio
     socket ipacm_log_file dgram 660 radio radio
@@ -790,21 +790,21 @@ service ipacm-diag /vendor/bin/ipacm-diag
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service ipacm /vendor/bin/ipacm
+service vendor.ipacm /vendor/bin/ipacm
     class main
     user radio
     group radio inet
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service qti /vendor/bin/qti
+service vendor.qti /vendor/bin/qti
     class main
     user radio
     group radio oem_2901 diag usb net_admin
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service sensors /vendor/bin/sensors.qcom
+service vendor.sensors /vendor/bin/sensors.qcom
     class core
     user root
     group root
@@ -813,7 +813,7 @@ service sensors /vendor/bin/sensors.qcom
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
-    stop netmgrd
+    stop vendor.netmgrd
 
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
@@ -823,25 +823,25 @@ on property:ro.data.large_tcp_window_size=true
 on property:sys.sysctl.tcp_adv_win_scale=*
     write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
 
-service amp_init /vendor/bin/amploader -i
+service vendor.amp_init /vendor/bin/amploader -i
     class late_start
     user root
     disabled
     oneshot
 
-service amp_load /vendor/bin/amploader -l 7000
+service vendor.amp_load /vendor/bin/amploader -l 7000
     class late_start
     user root
     disabled
     oneshot
 
-service amp_unload /vendor/bin/amploader -u
+service vendor.amp_unload /vendor/bin/amploader -u
     class late_start
     user root
     disabled
     oneshot
 
-service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
+service vendor.wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 -dd \
     -g@android:vendor_wpa_wlan0
     interface android.hardware.wifi.supplicant@1.0::ISupplicant default
@@ -872,7 +872,7 @@ service vendor.wigig_supplicant /vendor/bin/hw/wpa_supplicant \
     oneshot
 
 # FST Manager with hostapd (softap) - all settings inside ini file
-service fstman /vendor/bin/fstman -B -ddd -c /data/vendor/wifi/fstman.ini
+service vendor.fstman /vendor/bin/fstman -B -ddd -c /data/vendor/wifi/fstman.ini
     user wifi
     group wifi net_admin net_raw
     class main
@@ -880,7 +880,7 @@ service fstman /vendor/bin/fstman -B -ddd -c /data/vendor/wifi/fstman.ini
     oneshot
 
 # FST Manager with supplicant - connect to supplicant socket
-service fstman_wlan0 /vendor/bin/fstman -B -ddd -c /data/vendor/wifi/fstman.ini @android:wpa_wlan0
+service vendor.fstman_wlan0 /vendor/bin/fstman -B -ddd -c /data/vendor/wifi/fstman.ini @android:wpa_wlan0
     user wifi
     group wifi net_admin net_raw
     class main
@@ -888,18 +888,18 @@ service fstman_wlan0 /vendor/bin/fstman -B -ddd -c /data/vendor/wifi/fstman.ini 
     oneshot
 
 on property:netd.fstman.start=true
-    start fstman
+    start vendor.fstman
 
 on property:netd.fstman.start=false
-    stop fstman
+    stop vendor.fstman
 
-service wigighalsvc /vendor/bin/wigighalsvc
+service vendor.wigighalsvc /vendor/bin/wigighalsvc
     class main
     user system
     group wifi
     disabled
 
-service wigignpt /vendor/bin/wigignpt
+service vendor.wigignpt /vendor/bin/wigignpt
     class main
     socket wigignpt stream 660 system wifi
     user system
@@ -908,10 +908,10 @@ service wigignpt /vendor/bin/wigignpt
 
 on property:persist.vendor.wigig.enable=1
     insmod /vendor/lib/modules/wil6210.ko alt_ifname=1
-    start wigighalsvc
+    start vendor.wigighalsvc
 
 on property:persist.vendor.wigig.npt.enable=1
-    start wigignpt
+    start vendor.wigignpt
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKLG
     class late_start
@@ -953,19 +953,19 @@ service iprenew_wigig0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service ptt_socket_app /vendor/bin/ptt_socket_app -d
+service vendor.ptt_socket_app /vendor/bin/ptt_socket_app -d
     class main
     user root
     group root
     oneshot
 
-service ptt_ffbm /vendor/bin/ptt_socket_app -f -d
+service vendor.ptt_ffbm /vendor/bin/ptt_socket_app -f -d
     user root
     group root
     disabled
     oneshot
 
-service wifi_ftmd /vendor/bin/wifi_ftmd
+service vendor.wifi_ftmd /vendor/bin/wifi_ftmd
     user system
     group system inet net_admin
     socket wififtmd_server dgram 0660 system system
@@ -976,14 +976,14 @@ on property:wifi.ftmd.load=true
     insmod /system/lib/modules/pronto/pronto_wlan.ko con_mode=5
 
 # nubia disable auto start cnss_diag
-service cnss_diag /vendor/bin/cnss_diag -q -f
+service vendor.cnss_diag /vendor/bin/cnss_diag -q -f
     class main
     user system
     group system wifi inet net_admin sdcard_rw media_rw diag
     disabled
     oneshot
 
-service cnss-daemon /vendor/bin/cnss-daemon -n -l
+service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     user system
     group system inet net_admin wifi
@@ -991,7 +991,7 @@ service cnss-daemon /vendor/bin/cnss-daemon -n -l
     writepid /dev/cpuset/system-background/tasks
 
 on property:sys.powerctl=*
-    stop cnss-daemon
+    stop vendor.cnss-daemon
 
 service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
     class late_start
@@ -1023,19 +1023,19 @@ service dhcpcd_bnep4 /system/bin/dhcpcd -BKLG
     disabled
     oneshot
 
-service ssgqmigd /vendor/bin/ssgqmigd
+service vendor.ssgqmigd /vendor/bin/ssgqmigd
     class late_start
     user radio
     group radio
     socket ssgqmig seqpacket 0660 radio inet
 
-service mlid /vendor/bin/mlid
+service vendor.mlid /vendor/bin/mlid
     class late_start
     user gps
     group gps
     socket mlid stream 0666 gps gps
 
-service loc_launcher /vendor/bin/loc_launcher
+service vendor.loc_launcher /vendor/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
     group gps inet diag wifi
@@ -1045,61 +1045,61 @@ on property:crypto.driver.load=1
      insmod /system/lib/modules/qce.ko
      insmod /system/lib/modules/qcedev.ko
 
-service drmdiag /vendor/bin/drmdiagapp
+service vendor.drmdiag /vendor/bin/drmdiagapp
     class late_start
      user root
      disabled
      oneshot
 
 on property:drmdiag.load=1
-    start drmdiag
+    start vendor.drmdiag
 
 on property:drmdiag.load=0
-    stop drmdiag
+    stop vendor.drmdiag
 
-service qcom-sh /vendor/bin/init.qcom.sh
+service vendor.qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
     oneshot
 
-service sensor-sh /vendor/bin/init.qcom.sensors.sh
+service vendor.sensor-sh /vendor/bin/init.qcom.sensors.sh
     class core
     user root
     oneshot
 
-service crashdata-sh /vendor/bin/init.qcom.crashdata.sh
+service vendor.crashdata-sh /vendor/bin/init.qcom.crashdata.sh
     class late_start
     user root
     oneshot
 
-service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
+service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
     user root
     disabled
     oneshot
 
-service wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
+service vendor.wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
     class late_start
     group wifi inet
     disabled
     oneshot
 
-service wifi-crda /vendor/bin/init.crda.sh
+service vendor.wifi-crda /vendor/bin/init.crda.sh
    class late_start
    user root
    disabled
    oneshot
 
 on property:sys.boot_completed=1
-    start qcom-post-boot
+    start vendor.qcom-post-boot
 
-service qvop-daemon /vendor/bin/qvop-daemon
+service vendor.qvop-daemon /vendor/bin/qvop-daemon
     class late_start
     user system
     group system drmrpc
     writepid /dev/cpuset/system-background/tasks
 
-service perfd /vendor/bin/perfd
+service vendor.perfd /vendor/bin/perfd
     class main
     user root
     group root readproc system
@@ -1107,9 +1107,9 @@ service perfd /vendor/bin/perfd
     disabled
 
 on property:sys.post_boot.parsed=1
-    start perfd
+    start vendor.perfd
 
-service atfwd /vendor/bin/ATFWD-daemon
+service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
@@ -1117,14 +1117,7 @@ service atfwd /vendor/bin/ATFWD-daemon
     writepid /dev/cpuset/system-background/tasks
 
 on property:persist.radio.atfwd.start=true
-    start atfwd
-
-service hostapd_fst /vendor/bin/hostapd -dd -g /data/vendor/wifi/hostapd/global /data/misc/wifi/hostapd.conf
-    class late_start
-    user wifi
-    group wifi inet keystore net_admin net_raw
-    oneshot
-    disabled
+    start vendor.atfwd
 
 service vendor.wigig_hostapd /vendor/bin/hostapd -dd /data/vendor/wifi/wigig_hostapd.conf
     class late_start
@@ -1150,7 +1143,7 @@ service battery_monitor /system/bin/battery_monitor
     group system
     disabled
 
-service ril-daemon2 /vendor/bin/hw/rild -c 2
+service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
@@ -1159,7 +1152,7 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     group radio cache inet misc audio sdcard_r sdcard_rw diag log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service ril-daemon3 /vendor/bin/hw/rild -c 3
+service vendor.ril-daemon3 /vendor/bin/hw/rild -c 3
     class main
     socket rild3 stream 660 root radio
     socket rild-debug3 stream 660 radio system
@@ -1184,7 +1177,7 @@ service charger /charger
     group system graphics
     seclabel u:r:charger:s0
 
-service ssr_diag /vendor/bin/ssr_diag
+service vendor.ssr_diag /vendor/bin/ssr_diag
     class late_start
     user system
     group system
@@ -1216,14 +1209,14 @@ on property:sys.qbcharger.enable=true
 on property:sys.qbcharger.enable=false
     stop qbcharger
 
-service diag_mdlog_start /vendor/bin/diag_mdlog
+service vendor.diag_mdlog_start /vendor/bin/diag_mdlog
     class late_start
     user shell
     group system oem_2901 sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
-service diag_mdlog_stop /vendor/bin/diag_mdlog -k
+service vendor.diag_mdlog_stop /vendor/bin/diag_mdlog -k
     class late_start
     user shell
     group system oem_2901 sdcard_rw sdcard_r media_rw
@@ -1239,7 +1232,7 @@ on property:persist.sys.qlogd=1
 on property:persist.sys.qlogd=0
     stop qlogd
 
-service vm_bms /vendor/bin/vm_bms
+service vendor.vm_bms /vendor/bin/vm_bms
     user root
     group root
     disabled
@@ -1279,12 +1272,12 @@ service vendor.LKCore-rel /vendor/bin/LKCore
     user system
     group system log diag
 
-service qseeproxydaemon /vendor/bin/qseeproxydaemon
+service vendor.qseeproxydaemon /vendor/bin/qseeproxydaemon
     class late_start
     user system
     group system
 
-service esepmdaemon /vendor/bin/esepmdaemon
+service vendor.esepmdaemon /vendor/bin/esepmdaemon
     class core
     user system
     group nfc
@@ -1295,7 +1288,7 @@ on charger
     start qcom-post-boot
 
 #add poweroffhandler
-service poweroffhandler /vendor/bin/poweroffhandler
+service vendor.poweroffhandler /vendor/bin/poweroffhandler
     class core
     user media
     group graphics audio
@@ -1317,23 +1310,23 @@ on property:init.svc.surfaceflinger=restarting
 #on property:ro.logdumpd.enabled=1
 #    start logdumpd
 
-service time_daemon /vendor/bin/time_daemon
+service vendor.time_daemon /vendor/bin/time_daemon
     class main
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service qdmastatsd /vendor/bin/qdmastatsd
+service vendor.qdmastatsd /vendor/bin/qdmastatsd
     class late_start
     user system
     group readproc system net_bw_stats radio
 
-service vppservice /vendor/bin/vppservice
+service vendor.vppservice /vendor/bin/vppservice
     class main
     user media
     group camera
 
-service chre /vendor/bin/chre
+service vendor.chre /vendor/bin/chre
     class late_start
     user system
     group system
@@ -1344,12 +1337,12 @@ service chre /vendor/bin/chre
 on property:vendor.rild.libpath=*
     setprop rild.libpath ${vendor.rild.libpath}
 
-service seemp_healthd /vendor/bin/seemp_healthd
+service vendor.seemp_healthd /vendor/bin/seemp_healthd
     class late_start
     user system
     group system
 
-service power_off_alarm /vendor/bin/power_off_alarm
+service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
     disabled

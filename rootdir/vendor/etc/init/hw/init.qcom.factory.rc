@@ -27,12 +27,12 @@
 #
 
 # Define fastmmi
-service fastmmi /vendor/bin/mmi
+service vendor.fastmmi /vendor/bin/mmi
     user root
     group root
     disabled
 
-service mmid /vendor/bin/mmid
+service vendor.mmid /vendor/bin/mmid
     user root
     group root
     disabled
@@ -71,9 +71,9 @@ on mmi && property:ro.bootmode=ffbm-00
     #mkdir for factory data files.
     mkdir /persist/FTM_AP 0750 root root
 
-    start fastmmi
+    start vendor.fastmmi
     # start qcom-post-boot to set the misc partition path property value
-    start qcom-post-boot
+    start vendor.qcom-post-boot
 
 on mmi && property:ro.bootmode=ffbm-01
     # ========================================================
@@ -82,9 +82,9 @@ on mmi && property:ro.bootmode=ffbm-01
     #mkdir for factory data files.
     mkdir /persist/FTM_AP 0750 root root
 
-    start fastmmi
+    start vendor.fastmmi
     ## start qcom-post-boot to set the misc partition path property value
-    start qcom-post-boot
+    start vendor.qcom-post-boot
 
 on ffbm
     trigger early-fs
