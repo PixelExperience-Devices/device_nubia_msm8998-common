@@ -380,6 +380,15 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
 
+# Telephony
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
+
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
