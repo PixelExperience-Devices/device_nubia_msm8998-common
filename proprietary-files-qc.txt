@@ -246,7 +246,7 @@ vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libRSDriver_adreno.so
 
-# Graphics (Vulkan) - from wahoo - PO1A.181205.002
+# Graphics (Vulkan) - from wahoo - PO1A.190105.004
 vendor/lib/hw/vulkan.msm8996.so|f3655d2759ef626e3f1a2e8b0634300c4b6bab75
 vendor/lib64/hw/vulkan.msm8996.so|b34ac6144505c1763b40044e249b2dca3555f73d
 
