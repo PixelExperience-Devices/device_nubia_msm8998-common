@@ -1,2 +1,11 @@
 # Perf
 type post_boot_prop, property_type;
+
+# Fingerprint
+type fingerprint_status_prop, property_type;
+
+# Sensors
+type sensors_panel_prop, property_type;
+
+# Thermal engine
+type thermal_prop, property_type;
