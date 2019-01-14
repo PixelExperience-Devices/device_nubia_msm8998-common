@@ -139,8 +139,20 @@ on boot
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
 
+    # Start HW service manager early
+    start hwservicemanager
 
 on late-fs
+    # Start services for bootanim
+    start servicemanager
+    start surfaceflinger
+    start bootanim
+
+    # Make sure HW service manager started and start required HAL services
+    wait_for_prop hwservicemanager.ready true
+    start configstore-hal
+    start gralloc-2-0
+
     # Enable boot time fs tuning (ro like system is on sda, rw like userdata is on sde)
     write /sys/block/sda/queue/iostats 0
     write /sys/block/sda/queue/read_ahead_kb 2048
