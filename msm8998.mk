@@ -181,9 +181,6 @@ PRODUCT_PACKAGES += \
     sh_vendor \
     toybox_vendor
 
-PRODUCT_PACKAGES += \
-    netutils-wrapper-1.0
-
 # For config.fs
 PRODUCT_PACKAGES += \
     fs_config_files
