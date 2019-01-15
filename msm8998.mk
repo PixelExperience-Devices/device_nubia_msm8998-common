@@ -188,16 +188,17 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.1-impl-qti \
-    android.hardware.gnss@1.1-service-qti
-
-PRODUCT_PACKAGES += \
-    gps.conf \
-    libcurl \
+    android.hardware.gnss@1.1-service-qti \
     libgnss \
     libgnsspps \
+    libgps.utils \
+    liblocation_api \
+    libloc_core \
+    libloc_pla \
     libvehiclenetwork-native
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
     $(LOCAL_PATH)/gps/etc/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
     $(LOCAL_PATH)/gps/etc/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
     $(LOCAL_PATH)/gps/etc/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
