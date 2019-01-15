@@ -32,13 +32,13 @@ const char WLAN_MAC_FILE[] = "/persist/wlan_mac.bin";
 
 const char LIB_QMINVAPI[] = "libqminvapi.so";
 
-static const char xiaomi_mac_prefix[] = { 0x34, 0x80, 0xb3 };
+static const char nubia_mac_prefix[] = { 0x34, 0x80, 0xb3 };
 
 typedef int (*qmi_nv_read_mac_t)(char** mac);
 
 static void fill_random_mac(uint8_t mac[]) {
     int i;
-    memcpy(mac, xiaomi_mac_prefix, sizeof(nubia_mac_prefix));
+    memcpy(mac, nubia_mac_prefix, sizeof(nubia_mac_prefix));
 
     /*
      * We don't need strong randomness, and if the NV is corrupted
