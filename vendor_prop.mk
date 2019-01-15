@@ -154,17 +154,6 @@ ro.vendor.gt_library=libqti-gt.so
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so\
-
-persist.rild.nitz_plmn=\
-persist.rild.nitz_long_ons_0=\
-persist.rild.nitz_long_ons_1=\
-persist.rild.nitz_long_ons_2=\
-persist.rild.nitz_long_ons_3=\
-persist.rild.nitz_short_ons_0=\
-persist.rild.nitz_short_ons_1=\
-persist.rild.nitz_short_ons_2=\
-persist.rild.nitz_short_ons_3=\
-
 ril.subscription.types=NV,RUIM\
 DEVICE_PROVISIONED=1\
 ro.telephony.default_network=22,20\
@@ -173,7 +162,6 @@ keyguard.no_require_sim=true\
 persist.sys.ap.restart_level=1\
 persist.sys.oem_smooth=1\
 persist.sys.ssr.restart_level=3\
-
 persist.radio.multisim.config=dsds\
 persist.vendor.qcomsysd.enabled=1\
 persist.radio.hw_mbn_update=0\
