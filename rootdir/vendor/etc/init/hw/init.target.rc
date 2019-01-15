@@ -427,12 +427,6 @@ on charger
 #    user system
 #    group system
 
-service vendor.energy-awareness /vendor/bin/energy-awareness
-    class main
-    user root
-    group system
-    oneshot
-
 service vendor.mdtpd /vendor/bin/mdtpd
     class late_start
     user root
