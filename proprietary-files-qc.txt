@@ -256,39 +256,6 @@ vendor/firmware/a540_zap.b02
 vendor/firmware/a540_zap.elf
 vendor/firmware/a540_zap.mdt
 
-# Improvetouch
-lib/libhbtpjni.so
-lib/vendor.qti.hardware.improvetouch.blobmanager@1.0.so
-lib/vendor.qti.hardware.improvetouch.gesturemanager@1.0.so
-lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
-lib64/libhbtpjni.so
-lib64/vendor.qti.hardware.improvetouch.blobmanager@1.0.so
-lib64/vendor.qti.hardware.improvetouch.gesturemanager@1.0.so
-lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
-vendor/bin/hbtp_daemon
-vendor/etc/hbtp/hbtpcfg.dat
-vendor/etc/hbtp/hbtpcfg2.dat
-vendor/etc/hbtp/qtc800h.bin
-vendor/etc/hbtp/qtc800s_dsp.bin
-vendor/lib/libhbtpclient.so
-vendor/lib/libhbtpdsp.so
-vendor/lib/libhbtpfrmwk.so
-vendor/lib/vendor.qti.hardware.improvetouch.blobmanager@1.0_vendor.so
-vendor/lib/vendor.qti.hardware.improvetouch.blobmanager@1.0-service.so
-vendor/lib/vendor.qti.hardware.improvetouch.gesturemanager@1.0_vendor.so
-vendor/lib/vendor.qti.hardware.improvetouch.gesturemanager@1.0-service.so
-vendor/lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0_vendor.so
-vendor/lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0-service.so
-vendor/lib64/libhbtpclient.so
-vendor/lib64/libhbtpdsp.so
-vendor/lib64/libhbtpfrmwk.so
-vendor/lib64/vendor.qti.hardware.improvetouch.blobmanager@1.0_vendor.so
-vendor/lib64/vendor.qti.hardware.improvetouch.blobmanager@1.0-service.so
-vendor/lib64/vendor.qti.hardware.improvetouch.gesturemanager@1.0_vendor.so
-vendor/lib64/vendor.qti.hardware.improvetouch.gesturemanager@1.0-service.so
-vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0_vendor.so
-vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0-service.so
-
 # IPA
 vendor/firmware/ipa_fws.b00
 vendor/firmware/ipa_fws.b01
