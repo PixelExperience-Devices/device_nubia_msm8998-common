@@ -24,7 +24,7 @@
 # Fingerprint
 /dev/fpc   u:object_r:fingerprint_device:s0                                                                                            
 /sys/devices/soc/1.fpc1020(/.*)?   u:object_r:fingerprint_sysfs:s0                                                        
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint\.fpc@2\.1-service             u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.nubia_msm8998 u:object_r:hal_fingerprint_default_exec:s0
 
 # NFC
 /dev/bcm2079x                                                                                           u:object_r:nfc_device:s0

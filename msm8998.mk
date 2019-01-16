@@ -175,6 +175,11 @@ PRODUCT_PACKAGES += \
     sh_vendor \
     toybox_vendor
 
+
+# Fingerprint sensor
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service.nubia_msm8998
+
 # For config.fs
 PRODUCT_PACKAGES += \
     fs_config_files
