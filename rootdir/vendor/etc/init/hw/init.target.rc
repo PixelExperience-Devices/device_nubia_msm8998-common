@@ -64,7 +64,6 @@ on post-fs-data
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
-    mkdir /data/vendor/hbtp 0750 system system
     mkdir /data/misc/qvr 0770 system system
     
     # create directory for nfc- give nfc the read/write access to
@@ -201,12 +200,6 @@ service vendor.adsprpcd /vendor/bin/adsprpcd
    user media
    group media
    writepid /dev/cpuset/system-background/tasks
-
-service vendor.hbtp /vendor/bin/hbtp_daemon
-    class main
-    user system
-    group system
-    disabled
 
 service vendor.audiod /vendor/bin/audiod
    class late_start
