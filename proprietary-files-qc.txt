@@ -307,19 +307,11 @@ vendor/lib64/libkeymasterutils.so
 vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterdeviceutils.so
 
-# Listen
-vendor/lib/hw/sound_trigger.primary.msm8998.so
-vendor/lib/libadpcmdec.so
-vendor/lib/libgcs.so
-vendor/lib/libgcs-calwrapper.so
-vendor/lib/libgcs-ipc.so
-vendor/lib/libgcs-osal.so
-vendor/lib/libsmwrapper.so
-vendor/lib64/hw/sound_trigger.primary.msm8998.so
-vendor/lib64/libgcs.so
-vendor/lib64/libgcs-calwrapper.so
-vendor/lib64/libgcs-ipc.so
-vendor/lib64/libgcs-osal.so
+# Listen - from wahoo - PO1A.190105.004 and LA.UM.7.2.r1-04000-sdm660.0 - B2N_sprout:9/PPR1.180610.011/00WW_3_22C
+vendor/lib64/hw/sound_trigger.primary.msm8998.so|ae51297f84d866de86d9723d1048a5704941be00
+vendor/lib/hw/sound_trigger.primary.msm8998.so|bfe947d1b95a48279646f07a85adb5aea28ee838
+vendor/lib/libadpcmdec.so|4b44aaad44f7d66e9c8fca78fc207663e8d6d651
+vendor/lib/libsmwrapper.so|45be75b414f7a8bc3f4807dfab37a9ef9ce91426
 
 # Media
 lib/libmmosal.so
