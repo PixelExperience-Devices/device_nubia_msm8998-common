@@ -303,7 +303,7 @@ PRODUCT_PACKAGES += \
 
 # Playground
 PRODUCT_PACKAGES += \
-  Playground
+  PlaygroundMod
 
 # Privapp Whitelist
 PRODUCT_COPY_FILES += \
