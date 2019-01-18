@@ -1,1 +1,1 @@
-allow priv_app adsprpcd_file:filesystem getattr;
+get_prop(priv_app, camera_prop)

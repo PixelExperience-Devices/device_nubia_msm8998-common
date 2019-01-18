@@ -1,19 +1,15 @@
-# Fingerprint
-type fingerprint_data_file, core_data_file_type, data_file_type, file_type;
-type fingerprint_persist_file, file_type;
-type fingerprint_sysfs, sysfs_type, fs_type;
+type proc_touchpanel, fs_type;
 
-# Input devices
-type idc_file, file_type, vendor_file_type;
-type keylayout_file, file_type, vendor_file_type;
+type sysfs_fpc_key, fs_type, sysfs_type;
+type sysfs_fpc_irq, fs_type, sysfs_type;
+type sysfs_fpc_screen, fs_type, sysfs_type;
+type sysfs_fpc_proximity, fs_type, sysfs_type;
+type sysfs_livedisplay, sysfs_type, fs_type;
 
-# Power
-type debugfs_wlan, debugfs_type, fs_type;
-type sysfs_touchpanel, sysfs_type, fs_type;
+type sysfs_wifi, fs_type, sysfs_type;
 
-# Remote storage
-type debugfs_rmts, debugfs_type, fs_type;
+type debugfs_power_stats, fs_type, debugfs_type;
 
-# Thermal engine
-type thermal_data_file, core_data_file_type, data_file_type, file_type;
-type thermal_decrypt_file, core_data_file_type, data_file_type, file_type;
+type nv_data_file, file_type, data_file_type;
+
+type vendor_keylayout_file, file_type, vendor_file_type;

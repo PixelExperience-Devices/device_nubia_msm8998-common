@@ -1,7 +1,10 @@
-# Graphics
-genfscon sysfs /devices/soc/8c0000.qcom,msm-cam               u:object_r:sysfs_graphics:s0
-genfscon sysfs /devices/soc/caa0000.qcom,jpeg                 u:object_r:sysfs_graphics:s0
-genfscon sysfs /devices/soc/caa4000.qcom,fd                   u:object_r:sysfs_graphics:s0
+genfscon proc /touchpanel              u:object_r:proc_touchpanel:s0
+genfscon proc /s1302                   u:object_r:proc_touchpanel:s0
+genfscon proc /tri-state-key           u:object_r:proc_touchpanel:s0
 
-# Power
-genfscon debugfs /wlan0                                       u:object_r:debugfs_wlan:s0
+genfscon debugfs /p2p0/power_stats     u:object_r:debugfs_power_stats:s0
+genfscon debugfs /wlan0/power_stats    u:object_r:debugfs_power_stats:s0
+
+genfscon debugfs /rmt_storage/rmts     u:object_r:qti_debugfs:s0
+
+genfscon debugfs /msm_core             u:object_r:qti_debugfs:s0
