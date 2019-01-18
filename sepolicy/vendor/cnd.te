@@ -1,1 +1,1 @@
-set_prop(cnd, diag_prop)
+allow cnd self:capability { net_raw };
