@@ -1,12 +1,5 @@
-# Amplifier TAS2555
-type persist_amp_cal_file, file_type;
-
-# DEBUG
-type debugfs_rmt, debugfs_type, fs_type;
-type debugfs_wlan, debugfs_type, fs_type;
-
 # Fingerprint
-type fingerprint_data_file, data_file_type, file_type;
+type fingerprint_data_file, core_data_file_type, data_file_type, file_type;
 type fingerprint_persist_file, file_type;
 type fingerprint_sysfs, sysfs_type, fs_type;
 
@@ -14,27 +7,13 @@ type fingerprint_sysfs, sysfs_type, fs_type;
 type idc_file, file_type, vendor_file_type;
 type keylayout_file, file_type, vendor_file_type;
 
-# IR Remote
-type sysfs_ir_remote, sysfs_type, fs_type;
-
-# Perfd
-type perfd_socket, file_type;
-
-# Touchpanel
-type sysfs_touchpanel, fs_type, sysfs_type;
-
-# Vibrator
-#type sysfs_vibrator, sysfs_type, file_type;
-
-# RIL
-type nv_data_file, file_type, data_file_type;
-
-# Wi-Fi
-type sysfs_wifi, sysfs_type, fs_type;
+# Power
+type debugfs_wlan, debugfs_type, fs_type;
+type sysfs_touchpanel, sysfs_type, fs_type;
 
 # Remote storage
 type debugfs_rmts, debugfs_type, fs_type;
 
 # Thermal engine
-type thermal_data_file, data_file_type, file_type;
-type thermal_decrypt_file, data_file_type, file_type;
+type thermal_data_file, core_data_file_type, data_file_type, file_type;
+type thermal_decrypt_file, core_data_file_type, data_file_type, file_type;
