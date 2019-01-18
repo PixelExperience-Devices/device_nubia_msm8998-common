@@ -170,11 +170,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service
 
-PRODUCT_PACKAGES += \
-    mkshrc_vendor \
-    sh_vendor \
-    toybox_vendor
-
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
@@ -431,16 +426,13 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
-# VNDK
+# VNDK-SP
 PRODUCT_PACKAGES += \
-    vndk_package
+    vndk-sp
 
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v27/arm64/arch-arm64-armv8-a/shared/vndk-core/android.hardware.gnss@1.0.so:system/lib64/android.hardware.gnss@1.0-v27.so
 
-# VNDK-SP
-PRODUCT_PACKAGES += \
-    vndk-sp
 
 # VR
 PRODUCT_PACKAGES += \
@@ -462,11 +454,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
-
-# RIL
-PRODUCT_PACKAGES += \
-    libril-wrapper \
-    librmnetctl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
