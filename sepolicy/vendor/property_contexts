@@ -5,3 +5,7 @@ sys.listeners.registered                                      u:object_r:vendor_
 # Thermal engine
 persist.sys.thermal.                                          u:object_r:thermal_prop:s0
 sys.thermal.                                                  u:object_r:thermal_prop:s0
+
+# Netmgrd
+persist.net.doxlat                                            u:object_r:vendor_xlat_prop:s0
+
