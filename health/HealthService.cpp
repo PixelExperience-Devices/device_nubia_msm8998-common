@@ -32,8 +32,8 @@
 
 using android::hardware::health::V2_0::StorageInfo;
 using android::hardware::health::V2_0::DiskStats;
-using ::device::google::wahoo::health::CycleCountBackupRestore;
-using ::device::google::wahoo::health::LearnedCapacityBackupRestore;
+using ::device::nubia::msm8998::health::CycleCountBackupRestore;
+using ::device::nubia::msm8998::health::LearnedCapacityBackupRestore;
 
 static constexpr int kBackupTrigger = 20;
 static CycleCountBackupRestore ccBackupRestore;
