@@ -58,6 +58,9 @@ on init
     chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
     chown system system /sys/class/devfreq/soc:qcom,gpubw/min_freq
     chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq
+    
+    # for android.hardware.health@2.0-service.nubia_msm8998 cycle count backup
+    mkdir /persist/battery 0700 system system
 
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
