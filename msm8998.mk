@@ -88,6 +88,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@4.0-impl \
     android.hardware.audio@2.0-service \
     android.hardware.audio.effect@4.0-impl \
+    android.hardware.soundtrigger@2.1-impl \
     audio.a2dp.default \
     audio_amplifier.msm8998 \
     audio.primary.msm8998 \
