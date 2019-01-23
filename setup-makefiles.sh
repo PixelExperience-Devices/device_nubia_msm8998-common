@@ -32,11 +32,14 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
-# Initialize the helper for common
+# Initialize the helper
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 
 # Copyright headers and guards
-write_headers "nx563j nx595j"
+write_headers "cheeseburger dumpling"
+
+# The standard blobs
+write_makefiles "$MY_DIR"/proprietary-files.txt true
 
 # Qualcomm BSP blobs - we put a conditional around here
 # in case the BSP is actually being built

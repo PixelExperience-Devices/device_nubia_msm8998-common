@@ -14,9 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Emit commands needed for QCOM devices during OTA installation
-(installing the radio image)."""
-
 import hashlib
 import common
 import re
@@ -51,4 +48,3 @@ abort("Error: This package requires firmware version ' + version_firmware + \
 ' or newer. Please upgrade firmware and retry!"););'
       info.script.AppendExtra(cmd)
   return
-
