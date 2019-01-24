@@ -32,10 +32,10 @@
 start_sensors()
 {
     if [ -c /dev/msm_dsps -o -c /dev/sensors ]; then
-        chmod -h 775 /persist/sensors
-        chmod -h 664 /persist/sensors/sensors_settings
-        mkdir -p /persist/sensors/registry/registry
-        chown -h system.root /persist/sensors/sensors_settings
+        chmod -h 775 /mnt/vendor/persist/sensors
+        chmod -h 664 /mnt/vendor/persist/sensors/sensors_settings
+        mkdir -p /mnt/vendor/persist/sensors/registry/registry
+        chown -h system.root /mnt/vendor/persist/sensors/sensors_settings
         start vendor.sensors
     fi
 }

@@ -60,7 +60,7 @@ on init
     chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq
     
     # for android.hardware.health@2.0-service.nubia_msm8998 cycle count backup
-    mkdir /persist/battery 0700 system system
+    mkdir /mnt/vendor/persist/battery 0700 system system
 
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
@@ -199,10 +199,10 @@ on boot
     chown system system /sys/class/sensors/ap3426-proximity/poll_delay
 
     # Create directory used for display
-    mkdir /persist/display 0770 system graphics
+    mkdir /mnt/vendor/persist/display 0770 system graphics
 
     # Create vpp directory
-    mkdir /persist/vpp 0770 media media
+    mkdir /mnt/vendor/persist/vpp 0770 media media
     
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
@@ -285,17 +285,17 @@ on boot
     chmod 0644 /sys/class/proximity/proximity/prox_irq
     chmod 0644 /sys/class/proximity/proximity/prox_offset_cal_verify
     chmod 0644 /sys/class/proximity/proximity/prox_calibrate_verify
-    chown system system /persist/sensors/xtalk_cal
-    chmod 0664 /persist/sensors/xtalk_cal
+    chown system system /mnt/vendor/persist/sensors/xtalk_cal
+    chmod 0664 /mnt/vendor/persist/sensors/xtalk_cal
 
     #ztemt:jixd add for infinity calibration ---start
-    mkdir /persist/camera 0755 system system
-    chown system system /persist/camera
-    chmod 0751 /persist/camera
-    chown system system /persist/camera/camera_focus_pos.conf
-    chmod 0644 /persist/camera/camera_focus_pos.conf
-    chown system system /persist/camera/camera_focus_pos_sub.conf
-    chmod 0644 /persist/camera/camera_focus_pos_sub.conf
+    mkdir /mnt/vendor/persist/camera 0755 system system
+    chown system system /mnt/vendor/persist/camera
+    chmod 0751 /mnt/vendor/persist/camera
+    chown system system /mnt/vendor/persist/camera/camera_focus_pos.conf
+    chmod 0644 /mnt/vendor/persist/camera/camera_focus_pos.conf
+    chown system system /mnt/vendor/persist/camera/camera_focus_pos_sub.conf
+    chmod 0644 /mnt/vendor/persist/camera/camera_focus_pos_sub.conf
     #ztemt:jixd add for infinity calibration ---end
 
     # light
@@ -314,9 +314,9 @@ on boot
     chown system system /sys/class/light/light/module_tpcolor
     chown system system /sys/class/light/light/dump_tp_parameter
     chown system system /sys/class/light/light/dev_init
-    chown system system /persist/sensors/rgb_color_cfg
-    chown system system /persist/sensors/rgbc_cfg
-    chown system system /persist/sensors/als_cal_data
+    chown system system /mnt/vendor/persist/sensors/rgb_color_cfg
+    chown system system /mnt/vendor/persist/sensors/rgbc_cfg
+    chown system system /mnt/vendor/persist/sensors/als_cal_data
 
     chmod 0644   /sys/class/light/light/enable
     chmod 0644   /sys/class/light/light/tp_cfg
@@ -333,9 +333,9 @@ on boot
     chmod 0644   /sys/class/light/light/module_tpcolor
     chmod 0644   /sys/class/light/light/dump_tp_parameter
     chmod 0644   /sys/class/light/light/dev_init
-    chmod 0664   /persist/sensors/rgb_color_cfg
-    chmod 0664   /persist/sensors/rgbc_cfg
-    chmod 0664   /persist/sensors/als_cal_data
+    chmod 0664   /mnt/vendor/persist/sensors/rgb_color_cfg
+    chmod 0664   /mnt/vendor/persist/sensors/rgbc_cfg
+    chmod 0664   /mnt/vendor/persist/sensors/als_cal_data
 
     # Breath light
     chown system system /sys/class/leds/nubia_led/brightness
