@@ -45,11 +45,11 @@ case "$baseband" in
     start vendor.ipacm
     case "$baseband" in
         "svlte2a" | "csfb")
-          start vendor.qmiproxy
+          start qmiproxy
         ;;
         "sglte" | "sglte2" )
           if [ "x$sgltecsfb" != "xtrue" ]; then
-              start vendor.qmiproxy
+              start qmiproxy
           else
               setprop persist.vendor.radio.voice.modem.index 0
           fi
@@ -70,7 +70,7 @@ case "$baseband" in
     case "$datamode" in
         "tethered")
             start vendor.qti
-            start port-bridge
+            start vendor.port-bridge
             ;;
         "concurrent")
             start vendor.qti
