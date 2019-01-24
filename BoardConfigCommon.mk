@@ -29,7 +29,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 BOARD_VENDOR := nubia
 
 # we are too big to fit in
-PRODUCT_SKIP_FINGERPRINT_FROM_FILE := true
+#PRODUCT_SKIP_FINGERPRINT_FROM_FILE := true
 
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
@@ -227,6 +227,9 @@ BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
+
+# Peripheral manager
+TARGET_PER_MGR_ENABLED := true
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/sys/class/input/input1/wake_gesture"
