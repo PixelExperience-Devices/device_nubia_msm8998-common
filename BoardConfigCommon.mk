@@ -241,7 +241,7 @@ BOARD_ROOT_EXTRA_SYMLINKS += /mnt/vendor/persist:/persist
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_VERS=28.0
+BOARD_SEPOLICY_VERS := 28.0
 
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/vendor
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(PLATFORM_PATH)/sepolicy/public
