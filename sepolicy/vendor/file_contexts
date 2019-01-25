@@ -5,9 +5,6 @@
 # Amplifier persist files
 /persist/tas2555_cal\.bin                                                                               u:object_r:persist_amp_cal_file:s0
 
-# Camera
-/sys/devices(/platform)?/soc/[a-z0-9]+\.qcom,jpeg/video4linux/video[0-9]+/name(/.*)?                    u:object_r:sysfs_graphics:s0
-
 # CNE
 /data/connectivity(/.*)?                                      u:object_r:cnd_data_file:s0
 
