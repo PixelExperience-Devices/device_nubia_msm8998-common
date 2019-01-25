@@ -39,9 +39,6 @@
 # Power HAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.2-service\.nubia_msm8998-libperfmgr     u:object_r:hal_power_default_exec:s0
 
-# Persist partition
-/dev/block/bootdevice/by-name/persist                                                                   u:object_r:persist_block_device:s0
-
 # RIL
 /data/vendor/oemnvitems(/.*)? u:object_r:nv_data_file:s0
 /(vendor|system/vendor)/radio/qcril_database/qcril.db                                                   u:object_r:nv_data_file:s0
