@@ -16,38 +16,39 @@
 
 
 # Audio
-af.fast_track_multiplier=1
-vendor.audio_hal.period_size=192
-ro.config.vc_call_vol_steps=11
-ro.vendor.audio.sdk.fluencetype=fluence
-persist.vendor.audio.fluence.voicecall=true
-persist.vendor.audio.fluence.voicerec=false
-persist.vendor.audio.fluence.speaker=false
-vendor.audio.tunnel.encode=false
-persist.vendor.audio.ras.enabled=false
-vendor.audio.offload.buffer.size.kb=32
-audio.offload.video=true
-vendor.audio.offload.track.enable=true
-audio.deep_buffer.media=true
-vendor.voice.path.for.pcm.voip=true
-vendor.audio.offload.multiaac.enable=true
-vendor.audio.dolby.ds2.enabled=false
-vendor.audio.dolby.ds2.hardbypass=false
-vendor.audio.offload.multiple.enabled=false
-vendor.audio.offload.passthrough=false
-ro.vendor.audio.sdk.ssr=false
-vendor.audio.offload.gapless.enabled=true
-vendor.audio.safx.pbe.enabled=true
-vendor.audio.parser.ip.buffer.size=262144
-vendor.audio.flac.sw.decoder.24bit=true
-persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac
-vendor.audio.use.sw.alac.decoder=true
-vendor.audio.use.sw.ape.decoder=true
-vendor.audio.hw.aac.encoder=true
-vendor.fm.a2dp.conc.disabled=true
-vendor.audio.noisy.broadcast.delay=600
-vendor.audio.offload.pstimeout.secs=3
-audio.adm.buffering.ms=3
+PRODUCT_PROPERTY_OVERRIDES += \
+af.fast_track_multiplier=1 \
+vendor.audio_hal.period_size=192 \
+ro.config.vc_call_vol_steps=11 \
+ro.vendor.audio.sdk.fluencetype=fluence \
+persist.vendor.audio.fluence.voicecall=true \
+persist.vendor.audio.fluence.voicerec=false \
+persist.vendor.audio.fluence.speaker=false \
+vendor.audio.tunnel.encode=false \
+persist.vendor.audio.ras.enabled=false \
+vendor.audio.offload.buffer.size.kb=32 \
+audio.offload.video=true \
+vendor.audio.offload.track.enable=true \
+audio.deep_buffer.media=true \
+vendor.voice.path.for.pcm.voip=true \
+vendor.audio.offload.multiaac.enable=true \
+vendor.audio.dolby.ds2.enabled=false \
+vendor.audio.dolby.ds2.hardbypass=false \
+vendor.audio.offload.multiple.enabled=false \
+vendor.audio.offload.passthrough=false \
+ro.vendor.audio.sdk.ssr=false \
+vendor.audio.offload.gapless.enabled=true \
+vendor.audio.safx.pbe.enabled=true \
+vendor.audio.parser.ip.buffer.size=262144 \
+vendor.audio.flac.sw.decoder.24bit=true \
+persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
+vendor.audio.use.sw.alac.decoder=true \
+vendor.audio.use.sw.ape.decoder=true \
+vendor.audio.hw.aac.encoder=true \
+vendor.fm.a2dp.conc.disabled=true \
+vendor.audio.noisy.broadcast.delay=600 \
+vendor.audio.offload.pstimeout.secs=3 \
+audio.adm.buffering.ms=3 \
 ro.af.client_heap_size_kbyte=7168
 
 # Battery
@@ -199,6 +200,12 @@ ro.vendor.sensors.multishake=true
 # Timeservice
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.timed.enable=true
+
+# USB
+PRODUCT_PROPERTY_OVERRIDES += \
+sys.usb.controller=a800000.dwc3 \
+sys.usb.rndis.func.name=gsi \
+sys.usb.rmnet.func.name=gsi
 
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \
