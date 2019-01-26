@@ -64,7 +64,7 @@ ro.bluetooth.wipower=false
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-camera.aux.packagelist=com.google.android.GoogleCamera,com.android.camera,org.lineageos.snap \
+vendor.camera.aux.packagelist=com.google.android.GoogleCamera,com.android.camera,org.lineageos.snap \
 persist.camera.HAL3.enabled=1\
 persist.camera.eis.enable=1\
 persist.camera.depth.focus.cb=0\
@@ -74,17 +74,17 @@ persist.camera.CDS=Off
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.cne.feature=1
+persist.vendor.cne.feature=1
 
 # Data
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.data.mode=concurrent\
-persist.data.netmgrd.qos.enable=true\
+persist.vendor.data.mode=concurrent\
+persist.vendor.netmgrd.qos.enable=true\
 ro.use_data_netmgrd=true
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
-drm.service.enabled=true\
+drm.service.enabled=true
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -144,7 +144,7 @@ persist.dbg.vt_avail_ovr=1\
 persist.vendor.qti.telephony.vt_cam_interface=1\
 persist.dbg.ims_volte_enable=1\
 persist.radio.videopause.mode=1\
-persist.data.iwlan.enable=true
+persist.vendor.data.iwlan.enable=true
 
 # QTI
 PRODUCT_PROPERTY_OVERRIDES += \
