@@ -38,11 +38,6 @@ on early-init
     chmod 0620 /dev/kmsg
 
 on init
-    # Set permissions for persist partition
-    mkdir /persist 0771 root system
-
-    # Support legacy paths
-    symlink /sdcard /mnt/sdcard
 
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
@@ -800,7 +795,7 @@ service vendor.ipacm /vendor/bin/ipacm
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.qti /vendor/bin/qti
+service vendor.dataqti /vendor/bin/qti
     class main
     user radio
     group radio oem_2901 diag usb net_admin
@@ -1048,53 +1043,24 @@ on property:crypto.driver.load=1
      insmod /system/lib/modules/qce.ko
      insmod /system/lib/modules/qcedev.ko
 
-service vendor.drmdiag /vendor/bin/drmdiagapp
-    class late_start
-     user root
-     disabled
-     oneshot
-
-on property:drmdiag.load=1
-    start vendor.drmdiag
-
-on property:drmdiag.load=0
-    stop vendor.drmdiag
-
-service vendor.qcom-sh /vendor/bin/init.qcom.sh
+service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
     oneshot
 
-service vendor.sensor-sh /vendor/bin/init.qcom.sensors.sh
+service sensor-sh /vendor/bin/init.qcom.sensors.sh
     class core
     user root
     oneshot
 
-service vendor.crashdata-sh /vendor/bin/init.qcom.crashdata.sh
-    class late_start
-    user root
-    oneshot
-
-service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
+service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
     user root
     disabled
     oneshot
-
-service vendor.wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
-    class late_start
-    group wifi inet
-    disabled
-    oneshot
-
-service vendor.wifi-crda /vendor/bin/init.crda.sh
-   class late_start
-   user root
-   disabled
-   oneshot
 
 on property:sys.boot_completed=1
-    start vendor.qcom-post-boot
+    start qcom-post-boot
 
 service vendor.qvop-daemon /vendor/bin/qvop-daemon
     class late_start

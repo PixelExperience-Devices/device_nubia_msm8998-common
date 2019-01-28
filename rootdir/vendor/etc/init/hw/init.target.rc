@@ -34,13 +34,13 @@ on fs
     symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
 
     # modify for boot mount persist partition fix reformat partition issue
-    wait /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist nosuid noatime nodev barrier=1
     mkdir /mnt/vendor/persist/data 0700 system system
     mkdir /mnt/vendor/persist/bms 0700 root system
-    restorecon_recursive /mnt/vendor/persist
     mount_all /vendor/etc/fstab.qcom
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
     swapon_all /vendor/etc/fstab.qcom
+    restorecon_recursive /mnt/vendor/persist
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
@@ -97,23 +97,23 @@ on boot
     start rmt_storage
     start rfs_access
 
-    ####Regionalization config and prop files####
-    chmod 0644 /mnt/vendor/persist/speccfg/spec
-    chmod 0644 /mnt/vendor/persist/speccfg/devicetype
-    chmod 0644 /mnt/vendor/persist/speccfg/mbnversion
-    chmod 0644 /mnt/vendor/persist/speccfg/.not_triggered
-    chmod 0644 /mnt/vendor/persist/speccfg/vendor_ro.prop
-    chmod 0644 /mnt/vendor/persist/speccfg/vendor_persist.prop
-    chmod 0644 /mnt/vendor/persist/speccfg/submask
-    chmod 0644 /mnt/vendor/persist/speccfg/partition
-    chown system system /mnt/vendor/persist/speccfg/spec
-    chown system system /mnt/vendor/persist/speccfg/devicetype
-    chown system system /mnt/vendor/persist/speccfg/mbnversion
-    chown system system /mnt/vendor/persist/speccfg/.not_triggered
-    chown system system /mnt/vendor/persist/speccfg/vendor_ro.prop
-    chown system system /mnt/vendor/persist/speccfg/vendor_persist.prop
-    chown system system /mnt/vendor/persist/speccfg/submask
-    chown system system /mnt/vendor/persist/speccfg/partition
+   ####Regionalization config and prop files####
+   chmod 0644 /persist/speccfg/spec
+   chmod 0644 /persist/speccfg/devicetype
+   chmod 0644 /persist/speccfg/mbnversion
+   chmod 0644 /persist/speccfg/.not_triggered
+   chmod 0644 /persist/speccfg/vendor_ro.prop
+   chmod 0644 /persist/speccfg/vendor_persist.prop
+   chmod 0644 /persist/speccfg/submask
+   chmod 0644 /persist/speccfg/partition
+   chown system system /persist/speccfg/spec
+   chown system system /persist/speccfg/devicetype
+   chown system system /persist/speccfg/mbnversion
+   chown system system /persist/speccfg/.not_triggered
+   chown system system /persist/speccfg/vendor_ro.prop
+   chown system system /persist/speccfg/vendor_persist.prop
+   chown system system /persist/speccfg/submask
+   chown system system /persist/speccfg/partition
 
 #Tuxera exFAT kernel module
    insmod /vendor/lib/modules/texfat.ko
@@ -152,32 +152,7 @@ on property:sys.powerctl=*
 on charger
     start vendor.hvdcp_opti
     setprop sys.usb.configfs 1
-
-#on post-fs
-#    export LD_PRELOAD /vendor/lib/libNimsWrap.so
-#
-## Allow usb charging to be disabled peristently
-#on property:persist.usb.chgdisabled=1
-#    write /sys/class/power_supply/battery/charging_enabled 0
-#
-#on property:persist.usb.chgdisabled=0
-#    write /sys/class/power_supply/battery/charging_enabled 1
-#
-#service qrngd /system/bin/qrngd -f
-#   class main
-#   user root
-#   group root
-#
-#service qrngp /system/bin/qrngp
-#    class main
-#    user root
-#    group root
-#    oneshot
-#    disabled
-#
-#on property:sys.boot_completed=1
-#    start qrngp
-#
+    
 service vendor.qseecomd /vendor/bin/qseecomd
    class core
    user root
@@ -189,15 +164,6 @@ service vendor.spdaemon /vendor/bin/spdaemon
    user system
    group system
 
-#service mpdecision /vendor/bin/mpdecision --avg_comp
-#   user root
-#   disabled
-#
-#service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
-#   user system
-#   group system
-#   disabled
-#
 service vendor.thermal-engine /vendor/bin/thermal-engine
    class main
    user root
@@ -207,15 +173,6 @@ service vendor.thermal-engine /vendor/bin/thermal-engine
    socket thermal-send-rule stream 0660 system system
    group root
    writepid /dev/cpuset/system-background/tasks
-
-#service security-check1 /sbin/security_boot_check system
-#    class core
-#    oneshot
-#
-#service security-check2 /sbin/security_boot_check recovery
-#    class core
-#    oneshot
-#
 
 service vendor.adsprpcd /vendor/bin/adsprpcd
    class main
@@ -227,68 +184,7 @@ service vendor.audiod /vendor/bin/audiod
    class late_start
    user system
    group system
-
-#service usf_tester /vendor/bin/usf_tester
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf_epos /vendor/bin/usf_epos
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf_gesture /vendor/bin/usf_gesture
-#    user system
-#    group system inet
-#    disabled
-#
-
-#service usf_sync_gesture /vendor/bin/usf_sync_gesture
-#    user system
-#    group system inet
-#    disabled
-#
-
-#service usf_p2p /vendor/bin/usf_p2p
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf_hovering /vendor/bin/usf_hovering
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf_proximity /vendor/bin/usf_proximity
-#    user system
-#    group system inet
-#    disabled
-#
-#service usf-post-boot /vendor/bin/sh /system/etc/usf_post_boot.sh
-#    class late_start
-#    user root
-#    disabled
-#    oneshot
-#
-#on property:init.svc.bootanim=stopped
-#    start usf-post-boot
-#
-#
-#on boot
-#    insmod /system/lib/modules/adsprpc.ko
-#    insmod /system/lib/modules/mhi.ko
-## access permission for secure touch
-#    chmod 0660 /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch_enable
-#    chmod 0440 /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch
-#    chmod 0660 /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch_enable
-#    chmod 0440 /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch
-#    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch_enable
-#    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-004a/secure_touch
-#    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch_enable
-#    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch
-#
-#
+   
 service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
@@ -303,62 +199,9 @@ service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     group system wifi radio inet log diag
     disabled
     writepid /dev/cpuset/system-background/tasks
-#
-#service mdm_helper /system/bin/mdm_helper
-#    class core
-#    onrestart setprop ro.service.mdm_helper_restarted "true"
-#    disabled
-#
-#service mdm_helper_proxy /system/bin/mdm_helper_proxy
-#    class core
-#    disabled
-#
-#service mdm_launcher /system/bin/sh /init.mdm.sh
-#    class main
-#    oneshot
-#
-#service qcamerasvr /system/bin/mm-qcamera-daemon
-#    class late_start
-#    user camera
-#    group camera system inet input graphics
-#
-# Stop mdm_helper_proxy in case of shutdown
-#on property:sys.shutdown.requested=*
-#    stop mdm_helper_proxy
-#
-# Stop mdm_helper_proxy on APQ target
-#on property:ro.radio.noril=yes
-#    stop mdm_helper_proxy
-#
-#on property:persist.airplane.mode.pwr.svg=enabled
-#    setprop ro.mdm_helper_proxy_req false
-#
-#on property:init.svc.ril-daemon=running
-#    setprop ro.mdm_helper_proxy_req true
-#
-## Start mdm_helper_proxy
-#on property:ro.mdm_helper_proxy_req=true
-#    start mdm_helper_proxy
-#
-## QCA1530 SoC core detect
-#service gnss-detect /vendor/bin/gnss.qca1530.sh detect
-#   class core
-#   oneshot
+    
 service vendor.pd_mapper /vendor/bin/pd-mapper
      class core
-
-#
-## QCA1530 SoC late_start group trigger
-#service gnss-init /vendor/bin/gnss.qca1530.sh init
-#   class late_start
-#   oneshot
-#
-## QCA1530 SoC Service Daemon
-#service gnss-svcd /vendor/bin/gnss.qca1530.sh start
-#   class late_start
-#   user root
-#   group gps system oem_2901 diag log inet net_raw
-#   disabled
 
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start vendor.imsdatadaemon
@@ -377,12 +220,6 @@ service vendor.imsrcsservice /vendor/bin/imsrcsd
    disabled
    writepid /dev/cpuset/system-background/tasks
 
-service powerofflog /system/bin/sh /system/etc/fg_logs_start.sh /cache/nubialog
-    disabled
-    oneshot
-    group root shell
-    seclabel u:r:powerofflog:s0
-
 on property:sys.poweroffcharge.control=on
     start powerofflog
 
@@ -390,7 +227,7 @@ on property:vendor.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
     start vendor.imsrcsservice
 
-service vendor.ppd /vendor/bin/mm-pp-dpps
+service ppd /vendor/bin/mm-pp-dpps
     class late_start
     user system
     group system graphics
@@ -399,19 +236,15 @@ service vendor.ppd /vendor/bin/mm-pp-dpps
     writepid /dev/cpuset/system-background/tasks
 
 on property:init.svc.hwcomposer-2-1=stopped
-    stop vendor.ppd
+    stop ppd
 
 on property:init.svc.hwcomposer-2-1=running
-    start vendor.ppd
+    start ppd
 
 on property:init.svc.hwcomposer-2-1=restarting
-    stop vendor.ppd
+    stop ppd
 
 on charger
-    wait /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist nosuid nodev barrier=1
-    wait /dev/block/bootdevice/by-name/cache
-    mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev barrier=1
     mount_all fstab.qcom
     restorecon_recursive /mnt/vendor/persist
     restorecon_recursive /cache
@@ -419,28 +252,7 @@ on charger
     rm /sdcard
     symlink /cache /sdcard
     load_system_props
-    start vendor.qcom-post-boot
-    mkdir /cache/nubialog 0755 system system
-    chmod 755 /system/etc/fg_logs_start.sh
-    chown root shell /system/etc/fg_logs_start.sh
-#
-#service nqs /system/bin/nqs
-#    class late_start
-#    socket nqs_qsb_comm stream 660 system system
-#    user system
-#    group drmrpc
-#
-#service adsprpcd /vendor/bin/adsprpcd
-#   class main
-#   user media
-#   group media
-#
-##Start picture quality tuning service
-#service vqttoolservice /system/bin/vqttoolservice
-#    class late_start
-#    socket vqtss stream 0660 system system
-#    user system
-#    group system
+    start qcom-post-boot
 
 service vendor.mdtpd /vendor/bin/mdtpd
     class late_start
