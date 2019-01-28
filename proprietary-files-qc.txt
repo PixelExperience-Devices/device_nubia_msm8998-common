@@ -429,7 +429,7 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0_vendor.so
 vendor/radio/qcril_database/qcril.db
 
 # Radio - IMS
--app/ims/ims.apk|3806a916da8adc1e1787ec45a074a55968a0e752
+-app/ims/ims.apk
 -app/uceShimService/uceShimService.apk
 etc/permissions/com.qualcomm.qti.imscmservice.xml
 etc/permissions/qti-vzw-ims-internal.xml:vendor/etc/permissions/qti-vzw-ims-internal.xml
