@@ -541,8 +541,3 @@ vendor/bin/time_daemon
 vendor/bin/qvop-daemon
 vendor/lib/libqvop-service.so
 vendor/lib64/libqvop-service.so
-
-# WiFi firmware - from wahoo - PO1A.181205.002
-vendor/firmware/bdwlan.bin|133d1ebe01ec199a74720b40cb4ab9a78a855ba2
-vendor/firmware/bdwlan30.b80|133d1ebe01ec199a74720b40cb4ab9a78a855ba2
-vendor/firmware/bdwlan30.b09|5a0b7816570141d79d25dc79e17d0d1c90782251
