@@ -541,3 +541,6 @@ vendor/bin/time_daemon
 vendor/bin/qvop-daemon
 vendor/lib/libqvop-service.so
 vendor/lib64/libqvop-service.so
+
+# Wi-Fi
+vendor/bin/cnss-daemon
