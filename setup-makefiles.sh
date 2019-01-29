@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (C) 2017 The LineageOS Open Source Project
+# Copyright (C) 2019 The LineageOS Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,14 +32,11 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
-# Initialize the helper
+# Initialize the helper for common
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 
 # Copyright headers and guards
-write_headers "cheeseburger dumpling"
-
-# The standard blobs
-write_makefiles "$MY_DIR"/proprietary-files.txt true
+write_headers "nx563j nx595j"
 
 # Qualcomm BSP blobs - we put a conditional around here
 # in case the BSP is actually being built
@@ -52,14 +49,12 @@ write_makefiles "$MY_DIR"/proprietary-files-qc.txt true
 # in order to support Cyanogen OS builds
 cat << EOF >> "$PRODUCTMK"
 endif
-
 -include vendor/extra/devices.mk
 ifneq (\$(call is-qc-perf-target),true)
 EOF
 
 cat << EOF >> "$ANDROIDMK"
 endif
-
 ifneq (\$(TARGET_HAVE_QC_PERF),true)
 EOF
 
@@ -68,9 +63,7 @@ write_makefiles "$MY_DIR"/proprietary-files-qc-perf.txt true
 echo "endif" >> "$PRODUCTMK"
 
 cat << EOF >> "$ANDROIDMK"
-
 endif
-
 \$(shell mkdir -p \$(TARGET_OUT_VENDOR)/lib/egl && pushd \$(TARGET_OUT_VENDOR)/lib > /dev/null && ln -sf egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
 \$(shell mkdir -p \$(TARGET_OUT_VENDOR)/lib64/egl && pushd \$(TARGET_OUT_VENDOR)/lib64 > /dev/null && ln -sf egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
 EOF

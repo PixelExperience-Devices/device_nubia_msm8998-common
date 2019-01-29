@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2019 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,8 +31,8 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
-# Default to NOT sanitizing the vendor folder before extraction
-CLEAN_VENDOR=false
+# Default to sanitizing the vendor folder before extraction
+CLEAN_VENDOR=true
 
 while [ "$1" != "" ]; do
     case $1 in
@@ -52,12 +52,11 @@ if [ -z "$SRC" ]; then
     SRC=adb
 fi
 
-# Initialize the helper
+# Initialize the helper for common device
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true "$CLEAN_VENDOR"
 
 extract "$MY_DIR"/proprietary-files-qc.txt "$SRC" "$SECTION"
 extract "$MY_DIR"/proprietary-files-qc-perf.txt "$SRC" "$SECTION"
-extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
 if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
     # Reinitialize the helper for device
@@ -69,37 +68,21 @@ fi
 COMMON_BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE_COMMON"/proprietary
 
 #
-# Fix camera etc path
+# Correct VZW IMS library location
 #
-function fix_camera_etc_path () {
-    sed -i \
-        's/\/system\/etc\//\/vendor\/etc\//g' \
-        "$COMMON_BLOB_ROOT"/"$1"
-}
-
-fix_camera_etc_path vendor/lib/libmmcamera_imglib.so
-fix_camera_etc_path vendor/lib/libmmcamera_interface.so
-fix_camera_etc_path vendor/lib/libopcamera_native_modules.so
+QTI_VZW_IMS_INTERNAL="$COMMON_BLOB_ROOT"/vendor/etc/permissions/qti-vzw-ims-internal.xml
+sed -i "s|/system/vendor/framework/qti-vzw-ims-internal.jar|/vendor/framework/qti-vzw-ims-internal.jar|g" "$QTI_VZW_IMS_INTERNAL"
 
 #
-# Fix framework path
+# Correct qcrilhook library location
 #
-function fix_framework_path () {
-    sed -i \
-        's/\/system\/framework\//\/vendor\/framework\//g' \
-        "$COMMON_BLOB_ROOT"/"$1"
-}
-
-fix_framework_path vendor/etc/permissions/com.fingerprints.extension.xml
+QCRILHOOK="$COMMON_BLOB_ROOT"/vendor/etc/permissions/qcrilhook.xml
+sed -i "s|/system/framework/qcrilhook.jar|/vendor/framework/qcrilhook.jar|g" "$QCRILHOOK"
 
 #
 # Correct android.hidl.manager@1.0-java jar name
 #
-sed -i "s|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g" \
-    "$COMMON_BLOB_ROOT"/vendor/etc/permissions/qti_libpermissions.xml
-
-
-patchelf --replace-needed android.hardware.gnss@1.0.so android.hardware.gnss@1.0-v27.so $COMMON_BLOB_ROOT/vendor/lib64/vendor.qti.gnss@1.0.so
-patchelf --replace-needed android.hardware.gnss@1.0.so android.hardware.gnss@1.0-v27.so $COMMON_BLOB_ROOT/lib64/vendor.qti.gnss@1.0.so
+QTI_LIBPERMISSIONS="$COMMON_BLOB_ROOT"/vendor/etc/permissions/qti_libpermissions.xml
+sed -i "s|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g" "$QTI_LIBPERMISSIONS"
 
 "$MY_DIR"/setup-makefiles.sh
