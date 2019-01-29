@@ -57,11 +57,8 @@ ro.cutoff_voltage_mv=3200
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-bt.max.hfpclient.connections=1\
-qcom.bluetooth.soc=cherokee\
-ro.bluetooth.a4wp=false\
-ro.bluetooth.emb_wp_mode=false\
-ro.bluetooth.wipower=false
+qcom.bluetooth.soc=cherokee \
+ro.bluetooth.hfp.ver=1.6
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
