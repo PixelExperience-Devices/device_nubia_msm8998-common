@@ -379,6 +379,7 @@ vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libqmiservices.so
+vendor/lib64/libqminvapi.so|9e8158ac510685e9cb0f874deb9e654557d471b1 # from platina PKQ1.181007.001
 vendor/lib64/libsmemlog.so
 
 # Radio
