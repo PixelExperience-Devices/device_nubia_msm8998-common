@@ -411,4 +411,7 @@
    <!-- Enable 802.11ac for Wifi hotspot (SAP) -->
    <bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">true</bool>
 
+    <!-- Should we filter any display modes which are unampped? -->
+    <bool name="config_filterDisplayModes">true</bool>
+
 </resources>
