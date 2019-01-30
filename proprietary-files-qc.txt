@@ -85,7 +85,7 @@ vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
 vendor/bin/hvdcp_opti
 
 # CNE
--priv-app/CNEService/CNEService.apk|cd015cf0e96e4fe3c62f840131f5af890f453d65
+-priv-app/CNEService/CNEService.apk
 vendor/bin/cnd
 vendor/lib64/com.quicinc.cne.api@1.0.so
 vendor/lib64/com.quicinc.cne.constants@1.0.so
@@ -393,7 +393,7 @@ etc/permissions/telephonyservice.xml
 framework/embmslibrary.jar
 framework/qcnvitems.jar
 framework/qcrilhook.jar:vendor/framework/qcrilhook.jar
-framework/QtiTelephonyServicelibrary.jar|5af50f654d6174a726c0a57b5f32254e1a9d3016
+framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/ATFWD-daemon
 vendor/bin/netmgrd
