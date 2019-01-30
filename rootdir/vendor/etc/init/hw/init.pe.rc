@@ -28,9 +28,6 @@
 #
 
 on boot
-
-    # Wifi driver state control
-    chown wifi wifi /sys/kernel/boot_wlan/boot_wlan
     
 service vendor.readmac /vendor/bin/readmac
     class main
