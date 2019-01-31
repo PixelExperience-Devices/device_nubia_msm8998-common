@@ -250,8 +250,8 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 # LiveDisplay native
-#PRODUCT_PACKAGES += \
-#    libjni_livedisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sdm
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
