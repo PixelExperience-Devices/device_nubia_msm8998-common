@@ -343,6 +343,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.msm.usb.configfs.rc \
     init.qcom.rc \
+    init.pe.rc\
     init.qcom.factory.rc \
     init.qcom.power.rc \
     init.qcom.usb.rc \
