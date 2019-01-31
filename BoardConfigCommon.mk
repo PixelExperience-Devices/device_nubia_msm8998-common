@@ -218,9 +218,6 @@ TARGET_USES_MKE2FS := true
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
-# Power
-TARGET_TAP_TO_WAKE_NODE := "/sys/class/input/input1/wake_gesture"
-
 # Recovery
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/recovery/root/recovery.fstab
 BOARD_HAS_LARGE_FILESYSTEM := true
