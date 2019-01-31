@@ -278,13 +278,19 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    libnfc \
     com.android.nfc_extras \
     NfcNci \
-    SecureElement \
     Tag
 
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.1-service
+    android.hardware.nfc@1.0-impl-bcm \
+    android.hardware.nfc@1.0-service
+
+# NFC - Secure Element
+PRODUCT_PACKAGES += \
+    android.hardware.secure_element@1.0-service \
+    SecureElement
 
 # OMX
 PRODUCT_PACKAGES += \
