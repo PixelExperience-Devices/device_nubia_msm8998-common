@@ -47,6 +47,10 @@
 #define RPM_SYSTEM_STAT "/d/system_stats"
 #endif
 
+#ifndef TAP_TO_WAKE_NODE
+#define TAP_TO_WAKE_NODE "/sys/class/input/input1/wake_gesture"
+#endif
+
 #define ARRAY_SIZE(x) (sizeof((x))/sizeof((x)[0]))
 #define LINE_SIZE 128
 
@@ -68,6 +72,47 @@ struct stat_pair rpm_stat_map[] = {
     { VOTER_ADSP,    "ADSP",    master_stat_params, ARRAY_SIZE(master_stat_params) },
     { VOTER_SLPI,    "SLPI",    master_stat_params, ARRAY_SIZE(master_stat_params) },
 };
+
+static int sysfs_write(char *path, char *s)
+{
+    char buf[80];
+    int len;
+    int ret = 0;
+    int fd = open(path, O_WRONLY);
+
+    if (fd < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error opening %s: %s\n", path, buf);
+        return -1 ;
+    }
+
+    len = write(fd, s, strlen(s));
+    if (len < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error writing to %s: %s\n", path, buf);
+
+        ret = -1;
+    }
+
+    close(fd);
+
+    return ret;
+}
+
+void __attribute__((weak)) set_device_specific_feature(__unused feature_t feature, __unused int state)
+{
+}
+
+void set_feature(feature_t feature, int state) {
+    switch (feature) {
+        case POWER_FEATURE_DOUBLE_TAP_TO_WAKE:
+            sysfs_write(TAP_TO_WAKE_NODE, state ? "1" : "0");
+            break;
+        default:
+            break;
+    }
+    set_device_specific_feature(feature, state);
+}
 
 static int parse_stats(const char **params, size_t params_size,
                        uint64_t *list, FILE *fp) {
