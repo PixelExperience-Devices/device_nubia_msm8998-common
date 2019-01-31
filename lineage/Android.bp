@@ -1,3 +1,4 @@
 hidl_package_root {
-    name: "vendor.lineage"
+    name: "vendor.lineage",
+    path: "device/nubia/msm8998-common/lineage/",
 }
