@@ -45,36 +45,6 @@ enum stats_type {
     VOTER_ADSP,
     VOTER_SLPI,
     MAX_PLATFORM_STATS,
-
-    //WLAN Stats
-    WLAN_POWER_DEBUG_STATS = 0,
-    MAX_WLAN_STATS,
-};
-
-enum subsystem_type {
-    SUBSYSTEM_WLAN = 0,
-    SUBSYSTEM_EASEL,
-
-    //Don't add any lines after this line
-    SUBSYSTEM_COUNT
-};
-
-enum wlan_sleep_states {
-    WLAN_STATE_ACTIVE = 0,
-    WLAN_STATE_DEEP_SLEEP,
-
-    //Don't add any lines after this line
-    WLAN_STATES_COUNT
-};
-
-enum wlan_power_params {
-    CUMULATIVE_SLEEP_TIME_MS = 0,
-    CUMULATIVE_TOTAL_ON_TIME_MS,
-    DEEP_SLEEP_ENTER_COUNTER,
-    LAST_DEEP_SLEEP_ENTER_TSTAMP_MS,
-
-    //Don't add any lines after this line
-    WLAN_POWER_PARAMS_COUNT
 };
 
 
