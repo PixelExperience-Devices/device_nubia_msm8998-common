@@ -176,6 +176,11 @@ vendor/bin/dpmQmiMgr|eabe3e56c87e1de3f4462e85a7ee73fc3e91f726
 vendor/lib64/libdpmqmihal.so|fecdfdb7591feec835ed713863a8dbcca141b252
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|05af4880ad4c633fe60750ff49525e62822585f7
 
+# Dirac - from Xiaomi
+vendor/lib/soundfx/libdirac.so|f63826a905b520fa524e4c1b147be7cf65240953
+vendor/lib/libDiracAPI_SHARED.so|42b49679d38eca93fead05ea06ddbdc8108fd4b1
+vendor/etc/diracmobile.config|d781cd6798a7481a8f7128d144abfb2b8794212d
+
 # DRM
 vendor/bin/qseecomd
 vendor/lib64/libdrmfs.so
