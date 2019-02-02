@@ -268,12 +268,6 @@ on post-fs-data
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
     
-service vendor.readmac /vendor/bin/readmac
-    class main
-    user system
-    group system net_raw
-    oneshot
-    
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
     #Reset read ahead for dm-0 and dm-1 to 512kb
