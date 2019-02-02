@@ -37,6 +37,19 @@ on charger
     write /sys/devices/system/cpu/cpu5/online 0
     write /sys/devices/system/cpu/cpu6/online 0
     write /sys/devices/system/cpu/cpu7/online 0
+    
+    wait /dev/block/bootdevice/by-name/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
+
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    
+    load_system_props
+
+    start vendor.hvdcp_opti
+    start vendor.thermal-engine
+
+    setprop sys.usb.configfs 1
+    setprop sys.usb.config adb
 
 on early-init
     # Enable sched boost in order to schedule tasks on perf cluster
