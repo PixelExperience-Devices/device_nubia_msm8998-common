@@ -62,7 +62,7 @@ ro.bluetooth.hfp.ver=1.6
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-vendor.camera.aux.packagelist=com.google.android.GoogleCamera,com.android.camera,org.lineageos.snap \
+vendor.camera.aux.packagelist=com.google.android.GoogleCamera,com.android.camera,org.lineageos.snap,com.android.camera2 \
 persist.camera.HAL3.enabled=1\
 persist.camera.eis.enable=1\
 persist.camera.depth.focus.cb=0\
