@@ -1,9 +1,6 @@
 # Amplifier TAS2555
 type persist_amp_cal_file, file_type;
 
-# CND
-type cnd_old_data_file, file_type, data_file_type, core_data_file_type;
-
 # DEBUG
 type debugfs_rmt, debugfs_type, fs_type;
 type debugfs_wlan, debugfs_type, fs_type;
@@ -27,6 +24,10 @@ type sysfs_touchpanel, fs_type, sysfs_type;
 
 # RIL
 type nv_data_file, file_type, data_file_type;
+
+# /sys
+type sysfs_msm_subsys, sysfs_type, fs_type;
+
 
 # Wi-Fi
 type sysfs_wifi, sysfs_type, fs_type;
