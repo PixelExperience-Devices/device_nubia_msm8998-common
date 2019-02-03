@@ -38,8 +38,6 @@ on init
     
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
-	# NFC hal surfix
-    setprop ro.hardware.nfc_nci bcm2079x.default
 
 on boot
     #enable camera read sensors data
