@@ -164,7 +164,6 @@ PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
     libtinyxml \
-    libqdMetaData \
     libqdMetaData.system
 
 # Doze
