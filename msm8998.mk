@@ -135,7 +135,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    Snap
+    Camera2 
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
