@@ -278,6 +278,8 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    libnfc \
+    libnfcdummy \
     com.android.nfc_extras \
     NfcNci \
     Tag
