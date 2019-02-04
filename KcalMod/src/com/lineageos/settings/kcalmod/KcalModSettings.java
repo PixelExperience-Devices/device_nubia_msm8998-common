@@ -39,7 +39,7 @@ import android.preference.ListPreference;
 
 import com.lineageos.settings.kcalmod.R;
 
-public class ZukPrefSettings extends PreferenceActivity implements OnPreferenceChangeListener {
+public class KcalModSettings extends PreferenceActivity implements OnPreferenceChangeListener {
 	private static final boolean DEBUG = false;
 	private static final String TAG = "KcalMod";
 
@@ -51,7 +51,7 @@ public class ZukPrefSettings extends PreferenceActivity implements OnPreferenceC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.zuk_settings);
+        addPreferencesFromResource(R.xml.kcal_settings);
         mKcalPref = findPreference("kcal");
                 mKcalPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                      @Override
