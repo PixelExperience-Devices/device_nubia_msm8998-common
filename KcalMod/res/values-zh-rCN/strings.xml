@@ -28,7 +28,7 @@
     <string name="kcal_green">绿</string>
     <string name="kcal_blue">蓝</string>
     <string name="kcal_saturation">饱和度</string>
-    <string name="kcal_contrast">色值</string>
+    <string name="kcal_contrast">对比度</string>
     <string name="menu_reset">重置</string>
     <string name="kcal_color_temp">色温 (K)</string>	
 
