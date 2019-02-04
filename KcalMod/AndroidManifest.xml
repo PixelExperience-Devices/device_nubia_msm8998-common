@@ -11,8 +11,8 @@
     <protected-broadcast android:name="com.lineageos.settings.kcalmod.CUST_UPDATE" />
 
     <uses-sdk
-        android:minSdkVersion="28"
-        android:targetSdkVersion="28"/>
+        android:minSdkVersion="27"
+        android:targetSdkVersion="27"/>
 
     <application
         android:label="KcalMod"
