@@ -341,3 +341,6 @@
 
 # Hall device
 /dev/hall_device          0660   system     system
+
+# kcal
+/sys/devices/platform/kcal_ctrl.0/* 0666 system system
