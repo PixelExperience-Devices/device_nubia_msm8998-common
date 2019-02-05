@@ -122,11 +122,6 @@ vidc.enc.dcvs.extra-buff-count=2
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.vendor.overlay.izat.optin=rro
 
-# NFC
-PRODUCT_PROPERTY_OVERRIDES += \
-persist.nfc.smartcard.config=SIM1,eSE1\
-ro.nfc.port=I2C
-
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.vendor.extension_library=libqti-perfd-client.so \
