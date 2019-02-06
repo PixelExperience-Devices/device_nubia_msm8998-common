@@ -106,7 +106,7 @@ vendor.display.perf_hint_window=50 \
 vendor.gralloc.enable_fb_ubwc=1
 
 # LMKD
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 ro.lmk.low=1001 \
 ro.lmk.medium=800 \
 ro.lmk.critical=0 \
