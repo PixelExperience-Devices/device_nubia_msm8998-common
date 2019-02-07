@@ -17,71 +17,43 @@
 
 set -e
 
-INITIAL_COPYRIGHT_YEAR=2017
+INITIAL_COPYRIGHT_YEAR=2019
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
+if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-LINEAGE_ROOT="$MY_DIR"/../../..
+ROM_ROOT="${MY_DIR}/../../.."
 
-HELPER="$LINEAGE_ROOT"/vendor/lineage/build/tools/extract_utils.sh
-if [ ! -f "$HELPER" ]; then
-    echo "Unable to find helper script at $HELPER"
+HELPER="${ROM_ROOT}"/buildtools/extract_utils.sh
+if [ ! -f "${HELPER}" ]; then
+    echo "Unable to find helper script at ${HELPER}"
     exit 1
 fi
-. "$HELPER"
+source "${HELPER}"
 
 # Initialize the helper for common
-setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
+setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ROM_ROOT}" true
 
 # Copyright headers and guards
 write_headers "nx563j nx595j"
 
-# Qualcomm BSP blobs - we put a conditional around here
-# in case the BSP is actually being built
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$PRODUCTMK"
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
+# The standard common blobs
+write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
-write_makefiles "$MY_DIR"/proprietary-files-qc.txt true
-
-# Qualcomm performance blobs - conditional as well
-# in order to support Cyanogen OS builds
-cat << EOF >> "$PRODUCTMK"
-endif
--include vendor/extra/devices.mk
-ifneq (\$(call is-qc-perf-target),true)
-EOF
-
-cat << EOF >> "$ANDROIDMK"
-endif
-ifneq (\$(TARGET_HAVE_QC_PERF),true)
-EOF
-
-write_makefiles "$MY_DIR"/proprietary-files-qc-perf.txt true
-
-echo "endif" >> "$PRODUCTMK"
-
-cat << EOF >> "$ANDROIDMK"
-endif
-\$(shell mkdir -p \$(TARGET_OUT_VENDOR)/lib/egl && pushd \$(TARGET_OUT_VENDOR)/lib > /dev/null && ln -sf egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
-\$(shell mkdir -p \$(TARGET_OUT_VENDOR)/lib64/egl && pushd \$(TARGET_OUT_VENDOR)/lib64 > /dev/null && ln -sf egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
-EOF
-
-# We are done!
+# Finish
 write_footers
 
-if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
+if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
     # Reinitialize the helper for device
-    INITIAL_COPYRIGHT_YEAR="$DEVICE_BRINGUP_YEAR"
-    setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false
+    setup_vendor "${DEVICE}" "${VENDOR}" "${ROM_ROOT}" false
 
     # Copyright headers and guards
     write_headers
 
     # The standard device blobs
-    write_makefiles "$MY_DIR"/../$DEVICE/proprietary-files.txt true
+    write_makefiles "${MY_DIR}/../${DEVICE}/proprietary-files.txt" true
 
-    # We are done!
+    # Finish
     write_footers
 fi
