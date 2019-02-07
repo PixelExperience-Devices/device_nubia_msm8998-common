@@ -365,7 +365,8 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
-    libxml2 
+    libxml2 \
+    libprotobuf-cpp-full
 
 PRODUCT_PACKAGES += \
     ims-ext-common \
