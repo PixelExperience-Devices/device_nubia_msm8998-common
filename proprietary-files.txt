@@ -512,12 +512,12 @@ vendor/lib64/sensors.oem.so
 vendor/lib64/sensors.ssc.so
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
-# Thermal
+# Thermal - from daisy - PKQ1.180917.001.V10.0.3.0.PDLMIXM
 vendor/etc/thermal-engine.conf
-vendor/bin/thermal-engine
--vendor/lib/libthermalclient.so
--vendor/lib64/libthermalclient.so
-vendor/lib64/libthermalioctl.so
+vendor/bin/thermal-engine|e24c041613a4a522e15d54f700e1d1befe7e171e
+-vendor/lib64/libthermalclient.so|796c3e071fe9d6fa57598e1205a762cb55720f88
+vendor/lib64/libthermalioctl.so|5c126fa39bd8fbdb456c661be36e16ae5c6c3ec0
+-vendor/lib/libthermalclient.so|390eda2d80df6825c09eb504f0630650ea2d30f7
 
 
 # Time services
