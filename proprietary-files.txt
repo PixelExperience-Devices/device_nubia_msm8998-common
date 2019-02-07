@@ -311,14 +311,11 @@ vendor/lib64/libvpphvx.so
 vendor/lib64/libvpplibrary.so
 
 # Perf
-vendor/bin/energy-awareness
 vendor/bin/msm_irqbalance
 
 # Perf  from wahoo - PO1A.190105.004
-vendor/etc/perf-profile0.conf
 vendor/lib/libqti-perfd-client.so|f277daf9632b4d4c22a27abec2c4d0ccf776892d
 vendor/lib64/libqti-perfd-client.so|eaf678de5d7d0de194a263db1835b1f582452419
-vendor/lib64/libperfmgr.so|c3dd666accc3831b081429f283b767b79025979f
 
 # Peripheral manager
 vendor/bin/pm-proxy
