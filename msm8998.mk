@@ -333,8 +333,7 @@ PRODUCT_PACKAGES += \
     ueventd.rc
 
 PRODUCT_PACKAGES += \
-    init.qcom.sh \
-    init.qcom.usb.sh 
+    init.qcom.sh 
 
 PRODUCT_PACKAGES += \
     fstab.qcom
