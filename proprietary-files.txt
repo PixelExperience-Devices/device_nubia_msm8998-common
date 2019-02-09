@@ -390,8 +390,6 @@ vendor/lib64/libdsi_netctrl.so|0eab75ff9e411b30c96d44024b8a550db0696c5b
 vendor/lib64/liblqe.so|642063082fbec755a1c303442b7b3ea508b4a931
 vendor/lib64/libmdmdetect.so|f14885c3e843a0fb91c391b68eb9f156e40ac8cb
 vendor/lib64/libnetmgr.so|b2a814be61098934eeb632edd7da030d3e25e0a7
-vendor/lib64/libpdmapper.so|c79510921c3f515b8e5e9cbc591c1418135b2403
-vendor/lib64/libpdnotifier.so|e76e39ac9279e3975a4e9f665341574253c61d6b
 vendor/lib64/libnetmgr_common.so|0386df670ae1ae9790ed4b2b1fa904a5dd2b0232
 vendor/lib64/libnetmgr_nr_fusion.so|07e7a055b850753abc709773426e9066180c5e7d
 vendor/lib64/libnetmgr_rmnet_ext.so|2a254c48f2543ebd7c4b93c2f6dab281c5b26dc9
@@ -425,7 +423,6 @@ vendor/radio/qcril_database/qcril.db|ced4370ad96adba7e0f8c03018a3d188cb8e4ec4
 
 # Radio - IMS - from MI 8 Lite platina-user 9 PKQ1.181007.001 8.12.13 release-keys
 -priv-app/ims/ims.apk|e42e8f26feb0ef7cd3effd4cedfdd5ba4641dd6a
--app/imssettings/imssettings.apk:vendor/app/imssettings/imssettings.apk|20d9b2c3f5939d4bfa7c03b5383d0cf03dbbc39e
 etc/permissions/com.qualcomm.qti.imscmservice.xml|db25ef24f1937366d58a53b4f4b8923bc9e98d2d
 etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml|8d25bd7b79baf266950eb484c1a28817f891aec2
 etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml|998076243537f61f3683a3c083f7b27510617368
