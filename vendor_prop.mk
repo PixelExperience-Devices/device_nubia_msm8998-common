@@ -78,7 +78,7 @@ persist.vendor.cne.feature=1
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.vendor.data.mode=concurrent\
 persist.vendor.netmgrd.qos.enable=true\
-ro.use_data_netmgrd=true
+ro.vendor.use_data_netmgrd=true 
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
