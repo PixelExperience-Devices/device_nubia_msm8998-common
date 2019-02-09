@@ -32,6 +32,9 @@
 /sys/class/ir_remote/ir_remote/enable                                                                   u:object_r:sysfs_ir_remote:s0
 /sys/devices/virtual/ir_remote/ir_remote/enable                                                         u:object_r:sysfs_ir_remote:s0
 
+# msm_irqbalance
+/vendor/bin/msm_irqbalance  u:object_r:irqbalance_exec:s0
+
 # Touchpanel
 /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/0dbutton                                         u:object_r:sysfs_touchpanel:s0
 /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/wake_gesture                                     u:object_r:sysfs_touchpanel:s0

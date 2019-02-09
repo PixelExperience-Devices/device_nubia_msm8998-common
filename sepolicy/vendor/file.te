@@ -34,3 +34,10 @@ type sysfs_msm_subsys, sysfs_type, fs_type;
 
 # Wi-Fi
 type sysfs_wifi, sysfs_type, fs_type;
+
+# /proc
+type proc_kernel_sched, fs_type, proc_type;
+
+# msm_irqbalance
+type proc_irq, fs_type, proc_type;
+type irqbalance_socket, file_type;
