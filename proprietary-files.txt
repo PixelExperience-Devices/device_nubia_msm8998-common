@@ -130,23 +130,24 @@ vendor/bin/dpmQmiMgr|eabe3e56c87e1de3f4462e85a7ee73fc3e91f726
 vendor/lib64/libdpmqmihal.so|fecdfdb7591feec835ed713863a8dbcca141b252
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|05af4880ad4c633fe60750ff49525e62822585f7
 
-# DRM -from daisy
-vendor/bin/qseecomd|8ba233a028eec55d2f57ed7c85c6751e8f5c5d16
-vendor/lib64/libdrmfs.so|e20cc71ac84a7998626e600f4dd9dfe356a1436a
-vendor/lib64/libdrmtime.so|4efeb1449809aa172e68fe5bf5aa68be0f21387d
-vendor/lib64/libGPreqcancel.so|942e96e6c1706b52e0b2f898c5947f16f8612994
-vendor/lib64/libGPreqcancel_svc.so|699c1d86af3a0fe58ff3b9cc927f001ed10ee745
-vendor/lib64/libqisl.so|942e96e6c1706b52e0b2f898c5947f16f8612994
-vendor/lib64/libQSEEComAPI.so|1e695dcc9197c685c294d426822d2cb4e4c9c592
-vendor/lib64/librpmb.so|ba775205529284dc5d2233f11462037538f763af
-vendor/lib64/libsdedrm.so
-vendor/lib64/libsecureui.so|66befbd91628d464b71e1cd523eb111d517a5b84
-vendor/lib64/libsecureui_svcsock.so|ab9ec06666c6c63e4a30b2fe503e6088aab3629d
-vendor/lib64/libSecureUILib.so|d1bb44ffb30ab0efbc9d05ad729bac8b71dc28f5
-vendor/lib64/libspl.so
-vendor/lib64/libssd.so|0e988e6ef7b1d356f4b92a26a61b96a840de1d20
-vendor/lib64/libStDrvInt.so|61eb3821f61fb5b8e5a23f961111f09c93208918
-vendor/lib64/libtzdrmgenprov.so
+# DRM - from MI 8 Lite platina-user 9 PKQ1.181007.001 8.12.13 release-keys
+vendor/bin/qseecomd|a5eda3ca9138b510409ca21ee772408e39ae12c3
+vendor/lib/libQSEEComAPI.so|8ffb4568c78e36639687583c5b8ea5e49a1eb388
+vendor/lib/libsdedrm.so|8cb2d9afec44f74c9c8c5feb8e7f7152f17c5059
+vendor/lib64/libdrmfs.so|2e796707bbc6a4c903cff7ef5d2a90e48c9ae799
+vendor/lib64/libdrmtime.so|e88599562d9c39f3ebad87f8c3a1ff0ae69f2eba
+vendor/lib64/libGPreqcancel_svc.so|a75a32d4cff28841783c0db222c08c618e52625b
+vendor/lib64/libGPreqcancel.so|19679b918e5dcce54f853b8019806cdb6d2da165
+vendor/lib64/libqisl.so|18c594b80a3eb7e1435985411457ef9fdeae862b
+vendor/lib64/libQSEEComAPI.so|6ec762ad6105ca6b8a22f2878a6c8bb6d1bff0b9
+vendor/lib64/librpmb.so|15b5052a97a4952246a9f9d7fce98e1be50f86cc
+vendor/lib64/libsdedrm.so|973dde7d654c4f1ef46844011e6a2de3e6f7ee8c
+vendor/lib64/libsecureui_svcsock.so|2fadf4956c5959e4633674734f7db2b1301e7422
+vendor/lib64/libsecureui.so|865dd7a4a071b9a5baa16be793496fcc2469f37d
+vendor/lib64/libSecureUILib.so|8b77215ac12265599bf50bbcbc0ef0f3e623cfff
+vendor/lib64/libssd.so|e8a688dac8c3f5d74e18cf81b646de7469201055
+vendor/lib64/libStDrvInt.so|3cc5032096dca66a215727a6f0dd85a9055ef405
+vendor/lib64/libtzdrmgenprov.so|3dc9eb29ca0ec753a6e8b62560d3f46abd75edf2
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8998.so
