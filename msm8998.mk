@@ -133,7 +133,14 @@ PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
 
 # ARcore
-TARGET_INCLUDE_STOCK_ARCORE := true
+PRODUCT_PACKAGES += \
+    arcore
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.calibration_cad=/system/etc/calibration_cad.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/calibration_cad.xml:system/etc/calibration_cad.xml
 
 # Camera
 PRODUCT_PACKAGES += \
