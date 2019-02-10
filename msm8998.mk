@@ -185,6 +185,8 @@ PRODUCT_PACKAGES += \
 #FM
 PRODUCT_PACKAGES += \
     FM2 \
+    libfm-hci \
+    fm_helium \
     libqcomfm_jni \
     qcom.fmradio
 
