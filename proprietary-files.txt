@@ -553,10 +553,10 @@ vendor/lib64/libthermalioctl.so|5c126fa39bd8fbdb456c661be36e16ae5c6c3ec0
 -vendor/lib/libthermalclient.so|390eda2d80df6825c09eb504f0630650ea2d30f7
 
 
-# Time services
--vendor/app/TimeService/TimeService.apk
-vendor/bin/time_daemon
--vendor/lib64/libtime_genoff.so
+# Time services - from MI 8 Lite platina-user 9 PKQ1.181007.001 8.12.13 release-keys
+-vendor/app/TimeService/TimeService.apk|78109530538aa8fb533ad288c9d356c57481a10e
+vendor/bin/time_daemon|9fd464e3f356fcd4f4db6a4c9a1383d8210cb67b
+vendor/lib64/libtime_genoff.so|8f4c1f9ace6af463b241b130d6872b5d39cc7b2a
 
 # Voice fingerprint
 vendor/bin/qvop-daemon
