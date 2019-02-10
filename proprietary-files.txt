@@ -168,22 +168,22 @@ vendor/bin/dpmQmiMgr|eabe3e56c87e1de3f4462e85a7ee73fc3e91f726
 vendor/lib64/libdpmqmihal.so|fecdfdb7591feec835ed713863a8dbcca141b252
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|05af4880ad4c633fe60750ff49525e62822585f7
 
-# DRM -from daisy
-vendor/bin/qseecomd|8ba233a028eec55d2f57ed7c85c6751e8f5c5d16
-vendor/lib64/libdrmfs.so|e20cc71ac84a7998626e600f4dd9dfe356a1436a
-vendor/lib64/libdrmtime.so|4efeb1449809aa172e68fe5bf5aa68be0f21387d
-vendor/lib64/libGPreqcancel.so|942e96e6c1706b52e0b2f898c5947f16f8612994
-vendor/lib64/libGPreqcancel_svc.so|699c1d86af3a0fe58ff3b9cc927f001ed10ee745
-vendor/lib64/libqisl.so|942e96e6c1706b52e0b2f898c5947f16f8612994
-vendor/lib64/libQSEEComAPI.so|1e695dcc9197c685c294d426822d2cb4e4c9c592
-vendor/lib64/librpmb.so|ba775205529284dc5d2233f11462037538f763af
+# DRM
+vendor/bin/qseecomd
+vendor/lib64/libdrmfs.so
+vendor/lib64/libdrmtime.so
+vendor/lib64/libGPreqcancel.so
+vendor/lib64/libGPreqcancel_svc.so
+vendor/lib64/libqisl.so
+vendor/lib64/libQSEEComAPI.so
+vendor/lib64/librpmb.so
 vendor/lib64/libsdedrm.so
-vendor/lib64/libsecureui.so|66befbd91628d464b71e1cd523eb111d517a5b84
-vendor/lib64/libsecureui_svcsock.so|ab9ec06666c6c63e4a30b2fe503e6088aab3629d
-vendor/lib64/libSecureUILib.so|d1bb44ffb30ab0efbc9d05ad729bac8b71dc28f5
+vendor/lib64/libsecureui.so
+vendor/lib64/libsecureui_svcsock.so
+vendor/lib64/libSecureUILib.so
 vendor/lib64/libspl.so
-vendor/lib64/libssd.so|0e988e6ef7b1d356f4b92a26a61b96a840de1d20
-vendor/lib64/libStDrvInt.so|61eb3821f61fb5b8e5a23f961111f09c93208918
+vendor/lib64/libssd.so
+vendor/lib64/libStDrvInt.so
 vendor/lib64/libtzdrmgenprov.so
 
 # FM - from MI 8 Lite platina-user 9 PKQ1.181007.001 8.12.13 release-keys
