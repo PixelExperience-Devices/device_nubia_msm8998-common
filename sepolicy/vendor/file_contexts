@@ -58,3 +58,6 @@
 
 # Vibrator
 /sys/devices/virtual/timed_output/vibrator(/.*)?                                                        u:object_r:sysfs_vibrator:s0
+
+#latency_device
+/dev/cpu_dma_latency                            u:object_r:latency_device:s0
