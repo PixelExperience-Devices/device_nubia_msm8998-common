@@ -28,12 +28,6 @@ TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
 BOARD_VENDOR := nubia
 
-# we are too big to fit in
-#PRODUCT_SKIP_FINGERPRINT_FROM_FILE := true
-
-# Compile libhwui in performance mode
-HWUI_COMPILE_FOR_PERF := true
-
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
 
