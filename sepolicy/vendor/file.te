@@ -44,7 +44,6 @@ type sysfs_irq, sysfs_type, fs_type;
 type irqbalance_socket, file_type;
 
 #/persist
-type persist_file, file_type;
 type persist_battery_file, file_type;
 
 #scsi
