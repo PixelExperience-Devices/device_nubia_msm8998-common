@@ -42,3 +42,10 @@ type proc_kernel_sched, fs_type, proc_type;
 type proc_irq, fs_type, proc_type;
 type sysfs_irq, sysfs_type, fs_type;
 type irqbalance_socket, file_type;
+
+#/persist
+type persist_file, file_type;
+type persist_battery_file, file_type;
+
+#scsi
+type sysfs_scsi_devices_0000, sysfs_type, fs_type;
