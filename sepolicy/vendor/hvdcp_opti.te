@@ -1,1 +1,2 @@
-allow hvdcp_opti sysfs:file {search};
+allow hvdcp_opti sysfs_msm_subsys:dir search;
+allow hvdcp_opti sysfs_batteryinfo:dir search;
