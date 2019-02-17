@@ -6,3 +6,4 @@ type bootloader_boot_reason_prop, property_type;
 type console_silent_prop, property_type;
 type ctl_LKCore_prop, property_type;
 type ctl_atfwd_prop, property_type;
+type boottime_prop, property_type;
