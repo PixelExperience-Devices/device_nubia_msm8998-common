@@ -1,0 +1,11 @@
+get_prop(webview_zygote,bluetooth_prop)
+get_prop(webview_zygote,cnd_vendor_prop)
+get_prop(webview_zygote,bg_boot_complete_prop)
+get_prop(webview_zygote,bg_daemon_prop)
+get_prop(webview_zygote,bootloader_boot_reason_pro)
+get_prop(webview_zygote,console_silent_prop)
+get_prop(webview_zygote,ctl_LKCore_prop)
+get_prop(webview_zygote,ctl_atfwd_prop)
+
+
+
