@@ -57,3 +57,6 @@
 
 # Vibrator
 /sys/devices/virtual/timed_output/vibrator(/.*)?                                                        u:object_r:sysfs_vibrator:s0
+
+# wlan address
+/sys/devices/soc/18800000.qcom,icnss/net/wlan0/address                                                          u:object_r:sysfs_wlan_address:s0

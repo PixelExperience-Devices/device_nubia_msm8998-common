@@ -50,5 +50,8 @@ type persist_battery_file, file_type;
 #scsi
 type sysfs_scsi_devices_0000, sysfs_type, fs_type;
 
+# wlan address
+type sysfs_wlan_address, sysfs_type, fs_type;
+
 # Battery Stats file
 typeattribute sysfs_batteryinfo mlstrustedobject;
