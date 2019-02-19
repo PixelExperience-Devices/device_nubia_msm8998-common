@@ -1,7 +1,0 @@
-type hvdcp_opti, domain;
-type hvdcp_opti_exec, exec_type, vendor_file_type, file_type;
-
-init_daemon_domain(hvdcp_opti);
-
-allow hvdcp_opti sysfs_msm_subsys:dir search;
-allow hvdcp_opti sysfs_batteryinfo:dir search;
