@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# ARcore
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.calibration_cad=/system/etc/calibration_cad.xml
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
