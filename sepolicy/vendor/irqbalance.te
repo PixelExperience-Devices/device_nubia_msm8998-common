@@ -11,4 +11,6 @@ allow irqbalance sysfs_irq:file r_file_perms;
 allow irqbalance proc_stat:file r_file_perms;
 allow irqbalance proc_interrupts:file r_file_perms;
 
+allow irqbalance proc:file write;
+
 r_dir_file(irqbalance, proc)

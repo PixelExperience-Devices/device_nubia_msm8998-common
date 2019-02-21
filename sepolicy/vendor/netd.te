@@ -1,0 +1,2 @@
+allow netd dnsmasq:process noatsecure;
+allow netd kernel:system module_request;

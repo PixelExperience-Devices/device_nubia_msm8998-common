@@ -9,3 +9,12 @@ allow system_server sysfs_touchpanel:file write;
 
 # once cpufreq functionality is hidden behind a HAL.
 allow system_server sysfs_devices_system_cpu:file w_file_perms;
+
+
+allow system_server adsprpc_prop:file read;
+allow system_server bg_boot_complete_prop:file read;
+allow system_server bg_daemon_prop:file read;
+allow system_server bluetooth_prop:file read;
+allow system_server cnd_vendor_prop:file read;
+allow system_server init:binder { call transfer };
+allow system_server sysfs_touchpanel:file { getattr open };
