@@ -1,4 +1,5 @@
 allow untrusted_app proc_vmstat:file { getattr open read };
+
 allow untrusted_app bg_boot_complete_prop:file read;
 allow untrusted_app bg_daemon_prop:file read;
 allow untrusted_app boottime_prop:file read;
@@ -17,3 +18,14 @@ allow untrusted_app ctl_fuse_prop:file read;
 allow untrusted_app ctl_interface_restart_prop:file read;
 allow untrusted_app ctl_interface_start_prop:file read;
 allow untrusted_app runtime_event_log_tags_file:file { open read };
+allow untrusted_app ctl_interface_stop_prop:file read;
+allow untrusted_app ctl_mdnsd_prop:file read;
+allow untrusted_app ctl_qcrild_prop:file read;
+allow untrusted_app ctl_qvrd_prop:file read;
+allow untrusted_app ctl_restart_prop:file read;
+allow untrusted_app ctl_rildaemon_prop:file read;
+allow untrusted_app ctl_sigstop_prop:file read;
+allow untrusted_app ctl_start_prop:file read;
+allow untrusted_app ctl_stop_prop:file read;
+
+allow untrusted_app proc_stat:file { getattr open read };

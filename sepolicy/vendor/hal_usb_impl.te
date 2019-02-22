@@ -8,3 +8,4 @@ init_daemon_domain(hal_usb_impl)
 r_dir_file(hal_usb_impl, sysfs_usbpd_device)
 
 allow hal_usb_impl configfs:file create_file_perms;
+allow hal_usb_impl sysfs_msm_subsys:dir search;

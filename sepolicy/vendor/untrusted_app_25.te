@@ -1,0 +1,31 @@
+allow untrusted_app_25 anr_data_file:dir read;
+
+allow untrusted_app_25 hal_memtrack_default:binder call;
+
+allow untrusted_app_25 bg_boot_complete_prop:file { getattr open read };
+allow untrusted_app_25 bg_daemon_prop:file { getattr open read };
+allow untrusted_app_25 bluetooth_prop:file { getattr open read };
+allow untrusted_app_25 bootloader_boot_reason_prop:file { getattr open read };
+allow untrusted_app_25 boottime_prop:file read;
+allow untrusted_app_25 cnd_vendor_prop:file read;
+allow untrusted_app_25 console_silent_prop:file read;
+allow untrusted_app_25 ctl_LKCore_prop:file read;
+allow untrusted_app_25 ctl_atfwd_prop:file read;
+allow untrusted_app_25 ctl_stop_prop:file read;
+allow untrusted_app_25 ctl_vendor_hbtp_prop:file read;
+allow untrusted_app_25 ctl_vendor_imsrcsservice_prop:file read;
+allow untrusted_app_25 ctl_vendor_mmid_prop:file read;
+allow untrusted_app_25 ctl_vendor_netmgrd_prop:file read;
+allow untrusted_app_25 ctl_vendor_qmuxd_prop:file read;
+allow untrusted_app_25 logpersistd_logging_prop:file read;
+allow untrusted_app_25 lowpan_prop:file read;
+allow untrusted_app_25 mm_parser_prop:file read;
+allow untrusted_app_25 mm_video_prop:file read;
+allow untrusted_app_25 msm_irqbalance_prop:file read;
+
+allow untrusted_app_25 proc_version:file { getattr open read };
+allow untrusted_app_25 proc_vmstat:file { getattr open read };
+allow untrusted_app_25 runtime_event_log_tags_file:file { open read };
+allow untrusted_app_25 sysfs_net:dir search;
+allow untrusted_app_25 sysfs_wlan_address:file { getattr open read };
+

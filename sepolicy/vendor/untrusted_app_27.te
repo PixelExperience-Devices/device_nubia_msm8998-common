@@ -8,3 +8,10 @@ allow untrusted_app_27 cnd_vendor_prop:file read;
 allow untrusted_app_27 console_silent_prop:file read;
 allow untrusted_app_27 ctl_LKCore_prop:file read;
 allow untrusted_app_27 ctl_atfwd_prop:file read;
+allow untrusted_app_27 ctl_bootanim_prop:file read;
+allow untrusted_app_27 ctl_bugreport_prop:file read;
+allow untrusted_app_27 ctl_console_prop:file read;
+allow untrusted_app_27 ctl_default_prop:file read;
+allow untrusted_app_27 ctl_dumpstate_prop:file read;
+
+allow untrusted_app_27 selinuxfs:file { open read };
