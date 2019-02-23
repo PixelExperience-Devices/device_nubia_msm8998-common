@@ -8,7 +8,8 @@ allow webview_zygote console_silent_prop:file read;
 allow webview_zygote ctl_LKCore_prop:file read;
 allow webview_zygote ctl_atfwd_prop:file read;
 
-
+allow webview_zygote mnt_expand_file:dir getattr;
+allow webview_zygote zygote:unix_dgram_socket write;
 
 
 
