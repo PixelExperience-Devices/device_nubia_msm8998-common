@@ -1,1 +1,1 @@
-allow traceur_app prop_file:file read;
+allow traceur_app property_type:file read;

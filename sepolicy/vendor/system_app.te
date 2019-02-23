@@ -1,1 +1,1 @@
-allow system_app prop_file:file read;
+allow system_app property_type:file read;

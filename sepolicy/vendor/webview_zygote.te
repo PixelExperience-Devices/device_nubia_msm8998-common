@@ -1,12 +1,4 @@
-allow webview_zygote bg_boot_complete_prop:file read;
-allow webview_zygote bg_daemon_prop:file read;
-allow webview_zygote boottime_prop:file read;
-allow webview_zygote bluetooth_prop:file read;
-allow webview_zygote cnd_vendor_prop:file read;
-allow webview_zygote bootloader_boot_reason_prop:file read;
-allow webview_zygote console_silent_prop:file read;
-allow webview_zygote ctl_LKCore_prop:file read;
-allow webview_zygote ctl_atfwd_prop:file read;
+allow webview_zygote property_type:file read;
 
 allow webview_zygote mnt_expand_file:dir getattr;
 allow webview_zygote zygote:unix_dgram_socket write;

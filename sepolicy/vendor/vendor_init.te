@@ -8,4 +8,4 @@ allow vendor_init {
     tombstone_data_file
 }:dir create_dir_perms;
 
-dontaudit vendor_init unlabeled:dir setattr;
+allow vendor_init core_data_file_type:dir setattr;
