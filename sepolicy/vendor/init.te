@@ -32,7 +32,6 @@ allow init cameraserver:process noatsecure;
 allow init hal_audio_default:process noatsecure;
 allow init mediaserver:process noatsecure;
 allow init sensors:process noatsecure;
-allow init sysinit:process noatsecure;
 allow init wificond:process noatsecure;
 
 allow init sysfs_sectouch:file { open setattr write };
