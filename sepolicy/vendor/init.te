@@ -29,6 +29,7 @@ allow init tzdatacheck:process noatsecure;
 allow init vdc:process noatsecure;
 allow init zygote:process noatsecure;
 allow init netd:process noatsecure;
+allow init toolbox:process noatsecure;
 
 allow init sysfs_sectouch:file { open setattr write };
 
