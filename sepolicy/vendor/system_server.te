@@ -14,3 +14,5 @@ allow system_server init:binder { call transfer };
 allow system_server sysfs_touchpanel:file { getattr open };
 
 allow system_server property_type:file read;
+
+allow system_server dalvikcache_data_file:file { execute write };
