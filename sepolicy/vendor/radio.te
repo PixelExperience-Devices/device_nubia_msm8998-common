@@ -1,1 +1,3 @@
 allow radio vendor_file:file { execute getattr open read };
+allow radio bg_boot_complete_prop:file read;
+allow radio bg_daemon_prop:file read;

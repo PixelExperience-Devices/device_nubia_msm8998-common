@@ -33,6 +33,7 @@ allow init hal_audio_default:process noatsecure;
 allow init mediaserver:process noatsecure;
 allow init sensors:process noatsecure;
 allow init wificond:process noatsecure;
+allow init hal_camera_default:process noatsecure;
 
 allow init sysfs_sectouch:file { open setattr write };
 allow init sysfs:file { open write };
@@ -40,6 +41,7 @@ allow init sysfs_fingerprint:file { open read write };
 allow init sysfs_msm_subsys:file { open write };
 allow init system_server:binder call;
 allow init vendor_file:file { execute execute_no_trans };
+allow init hwservicemanager:binder { call transfer };
 
 userdebug_or_eng(`
 	permissive init;
