@@ -1,5 +1,7 @@
 allow system_app property_type:file read;
 
-allow system_app proc_pagetypeinfo:file read;
+allow system_app proc_pagetypeinfo:file { open read };
 allow system_app sysfs_msm_subsys:dir search;
 allow system_app sysfs_zram:dir search;
+allow system_app sysfs_zram:file read;
+allow system_app sysfs_sectouch:dir search;
