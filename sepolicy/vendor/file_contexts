@@ -57,3 +57,6 @@
 # USB HAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.1-service\.nubia_msm8998      u:object_r:hal_usb_impl_exec:s0
 
+# Wifi driver state
+/sys/kernel/boot_wlan(/.*)? u:object_r:sysfs_wifi_driver_state:s0
+
