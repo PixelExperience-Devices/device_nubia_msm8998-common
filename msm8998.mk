@@ -314,7 +314,6 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service.nubia_msm8998-libperfmgr
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml\
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Low power Whitelist
