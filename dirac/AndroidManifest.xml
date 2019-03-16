@@ -52,9 +52,5 @@
                        android:resource="@string/dirac_summary" />
         </activity>
 
-        <service android:name=".doze.DozeService"
-                 android:permission="XiaomiDozeService">
-        </service>
-
     </application>
 </manifest>
