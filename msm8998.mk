@@ -148,10 +148,6 @@ PRODUCT_PACKAGES += \
     com.quicinc.cne \
     services-ext
 
-# Dex
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI
-
 # Device-specific settings
 PRODUCT_PACKAGES += \
     Dirac 
