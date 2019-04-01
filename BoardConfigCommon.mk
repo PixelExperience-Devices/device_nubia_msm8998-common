@@ -244,6 +244,9 @@ TARGET_USES_MKE2FS := true
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
+# Power
+TARGET_USES_INTERACTION_BOOST := true
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/recovery/root/recovery.fstab
 BOARD_HAS_LARGE_FILESYSTEM := true
