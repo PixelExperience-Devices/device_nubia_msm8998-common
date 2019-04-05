@@ -20,7 +20,7 @@
 /dev/drv2605                                                                                            u:object_r:haptics_device:s0
 
 #Health
-/vendor/bin/hw/android\.hardware\.health@2\.0-service\.nubia_msm8998          u:object_r:hal_health_default_exec:s0
+/vendor/bin/hw/android\.hardware\.health@2\.0-service      u:object_r:hal_health_default_exec:s0
 
 # Light HAL
 /sys/class/leds(/.*)?                                                                                   u:object_r:sysfs_leds:s0
