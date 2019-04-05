@@ -110,6 +110,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.perf_hint_window=50 \
     vendor.gralloc.enable_fb_ubwc=1
 
+# IMS
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.dbg.volte_avail_ovr=1\
+    persist.dbg.vt_avail_ovr=1\
+    persist.qti.telephony.vt_cam_interface=2 \
+    persist.radio.VT_CAM_INTERFACE=2 \
+    persist.vendor.qti.telephony.vt_cam_interface=2 \
+    persist.vendor.radio.VT_CAM_INTERFACE=2 \
+    persist.dbg.ims_volte_enable=1\
+    persist.radio.videopause.mode=1\
+    persist.vendor.data.iwlan.enable=true
+
+# IZat
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.overlay.izat.optin=rro
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-player=true\
@@ -123,28 +139,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.mm.enable.prefetch=true\
     vidc.enc.dcvs.extra-buff-count=2
 
-# IZat
+# Memory (CAF)
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.overlay.izat.optin=rro
+    ro.vendor.qti.sys.fw.bg_apps_limit=60 \
+    ro.vendor.qti.sys.fw.bservice_enable=true \
+    ro.vendor.qti.sys.fw.bservice_limit=5 \
+    ro.vendor.qti.sys.fw.bservice_age=5000
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.vendor.qti.core_ctl_max_cpu=4 \
-    ro.vendor.qti.core_ctl_min_cpu=0 \
-    ro.vendor.qti.sys.fw.bg_apps_limit=60 
+    ro.vendor.extension_library=libqti-perfd-client.so 
 
-# IMS
+# Pie Telephony blobs
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.dbg.volte_avail_ovr=1\
-    persist.dbg.vt_avail_ovr=1\
-    persist.qti.telephony.vt_cam_interface=2 \
-    persist.radio.VT_CAM_INTERFACE=2 \
-    persist.vendor.qti.telephony.vt_cam_interface=2 \
-    persist.vendor.radio.VT_CAM_INTERFACE=2 \
-    persist.dbg.ims_volte_enable=1\
-    persist.radio.videopause.mode=1\
-    persist.vendor.data.iwlan.enable=true
+    persist.vendor.qti.pie.telephony=1
 
 # QTI
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -204,7 +212,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
-
-# Pie Telephony blobs
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.qti.pie.telephony=1
