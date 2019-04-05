@@ -6,3 +6,7 @@ allow hal_fingerprint_default sysfs_leds:dir search;
 allow hal_fingerprint_default sysfs_leds:file { open read };
 allow hal_fingerprint_default tee_device:chr_file { ioctl open read write };
 allow hal_fingerprint_default uhid_device:chr_file { ioctl open write };
+
+userdebug_or_eng(`
+	permissive hal_fingerprint_default;
+')
