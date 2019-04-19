@@ -129,6 +129,12 @@ on late-fs
     write /sys/block/sde/queue/read_ahead_kb 2048
     write /sys/block/sde/queue/nr_requests 256
     
+on property:sys.post_boot.parsed=1
+    # Setup permission for Power HAL
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory
+    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
+    
     # Setup permission for powerHAL
     chown system system /dev/stune/top-app/schedtune.boost
     chown system system /dev/cpu_dma_latency
@@ -136,6 +142,10 @@ on late-fs
     chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
     chown system system /sys/class/devfreq/soc:qcom,gpubw/min_freq
     chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/min_freq
+    
+    on post-fs
+    # set RLIMIT_MEMLOCK to 64MB
+    setrlimit 8 67108864 67108864
 
 on property:sys.boot_completed=1
     # Disable boot time fs tuning
@@ -145,11 +155,6 @@ on property:sys.boot_completed=1
     write /sys/block/sde/queue/iostats 1
     write /sys/block/sde/queue/read_ahead_kb 512
     write /sys/block/sde/queue/nr_requests 512
-    
-    # Setup permission for powerHAL
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_trigger_count
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory
-    chown system system /sys/devices/soc/soc:qcom,cpubw/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length
 
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
