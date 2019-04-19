@@ -157,6 +157,11 @@ on property:sys.boot_completed=1
     write /sys/block/sde/queue/nr_requests 128
     # Set the default IRQ affinity to the silver cluster.
     write /proc/irq/default_smp_affinity f
+    
+    chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
+    chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
+    write /sys/devices/virtual/graphics/fb0/idle_time 100
+
 
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
