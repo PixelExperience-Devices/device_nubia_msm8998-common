@@ -1,1 +1,0 @@
-allow shared_relro property_type:file read;

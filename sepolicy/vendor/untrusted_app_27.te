@@ -1,3 +1,0 @@
-# KcalMod
-allow untrusted_app_27 selinuxfs:file { open read };
-allow untrusted_app_27 property_type:file read;

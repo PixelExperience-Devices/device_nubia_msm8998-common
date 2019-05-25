@@ -4,5 +4,3 @@ allow hal_camera_default camera_data_file:dir create_dir_perms;
 allow hal_camera_default camera_data_file:file create_file_perms;
 
 allow hal_camera_default sysfs_msm_subsys:dir search;
-
-set_prop( hal_camera_default,default_prop )
