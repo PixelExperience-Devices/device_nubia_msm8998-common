@@ -42,3 +42,7 @@ allow init system_server:binder call;
 allow init hwservicemanager:binder { call transfer };
 allow init sysfs_usb_charge:file { open write };
 
+userdebug_or_eng(`	
+	permissive init;	
+')
+
