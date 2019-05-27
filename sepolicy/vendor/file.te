@@ -52,3 +52,6 @@ type sysfs_wifi_driver_state, sysfs_type, fs_type;
 
 # Battery Stats file
 typeattribute sysfs_batteryinfo mlstrustedobject;
+
+# Usb Fast Charge
+type sysfs_usb_charge, fs_type, sysfs_type;
