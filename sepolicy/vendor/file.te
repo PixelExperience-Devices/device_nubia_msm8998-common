@@ -55,3 +55,6 @@ typeattribute sysfs_batteryinfo mlstrustedobject;
 
 # Usb Fast Charge
 type sysfs_usb_charge, fs_type, sysfs_type;
+
+# Kcal	
+type kcal_dev, sysfs_type, file_type; 
