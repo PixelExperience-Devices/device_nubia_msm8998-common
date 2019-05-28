@@ -1,1 +1,2 @@
-allow radio vendor_file:file read;
+allow radio vendor_file:file { execute getattr open read };
+allow radio property_type:file read;
