@@ -255,10 +255,6 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
 
-# Display Mod
-PRODUCT_PACKAGES += \
-    KcalMod
-
 # Wallpapers
 PRODUCT_PACKAGES += \
     WallpapersBReel2018
