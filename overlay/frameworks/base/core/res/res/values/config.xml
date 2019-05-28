@@ -379,4 +379,10 @@
          correctly use them when installed on your device.  Otherwise, keep this disabled
          so that applications can still use their own mechanisms. -->
     <bool name="config_enableAutoPowerModes">true</bool>
+
+     <!-- Turn on LiveDisplay auto mode by default -->
+    <integer name="config_defaultLiveDisplayMode">0</integer>
+
+     <!-- Should we filter any display modes which are unmapped? -->
+    <bool name="config_filterDisplayModes">true</bool>
 </resources>

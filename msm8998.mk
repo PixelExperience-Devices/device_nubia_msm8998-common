@@ -255,6 +255,10 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
 
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sdm
+
 # Wallpapers
 PRODUCT_PACKAGES += \
     WallpapersBReel2018
