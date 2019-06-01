@@ -27,7 +27,7 @@
 #
 #
 
-import init.nubia.touch.lcd.rc
+import /vendor/etc/init/hw/init.nubia.touch.lcd.rc
 
 #add for systrace
 on post-fs-data
