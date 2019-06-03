@@ -44,7 +44,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.safx.pbe.enabled=true \
     vendor.audio.parser.ip.buffer.size=262144 \
     vendor.audio.flac.sw.decoder.24bit=true \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
+    persist.vendor.btstack.a2dp_offload_cap=sbc-aac \
+    persist.vendor.btstack.enable.splita2dp=true \
     vendor.audio.use.sw.alac.decoder=true \
     vendor.audio.use.sw.ape.decoder=true \
     vendor.audio.hw.aac.encoder=true \
@@ -52,7 +53,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.noisy.broadcast.delay=600 \
     vendor.audio.offload.pstimeout.secs=3 \
     audio.adm.buffering.ms=3 \
-    ro.af.client_heap_size_kbyte=7168
+    ro.af.client_heap_size_kbyte=7168 \
+    persist.vendor.audio.hw.binder.size_kbyte=1024 \
+    vendor.audio.noise.reduction.for.voice.call=false
 
 # Battery
 PRODUCT_PROPERTY_OVERRIDES += \
