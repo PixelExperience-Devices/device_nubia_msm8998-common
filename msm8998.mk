@@ -137,6 +137,11 @@ TARGET_INCLUDE_STOCK_ARCORE := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/calibration_cad.xml:system/etc/calibration_cad.xml
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    libbt-vendor \
+    libbthost_if 
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
