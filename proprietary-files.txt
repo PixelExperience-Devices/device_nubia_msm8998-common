@@ -85,11 +85,9 @@ lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
 -lib/vendor.qti.hardware.fm@1.0.so
 -lib64/vendor.qti.hardware.fm@1.0.so
 lib/com.qualcomm.qti.bluetooth_audio@1.0.so:vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
-vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
 lib64/com.qualcomm.qti.bluetooth_audio@1.0.so:vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
-vendor/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 
