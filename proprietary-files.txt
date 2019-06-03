@@ -57,35 +57,45 @@ vendor/lib/soundfx/libqcvirt.so
 vendor/lib/soundfx/libshoebox.so
 
 # Bluetooth
+vendor/bin/btnvtool
+vendor/bin/hci_qcomm_init
+vendor/bin/wcnss_filter
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
+-vendor/lib/libbtnv.so
+vendor/lib/libbt-hidlclient.so
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
+-vendor/lib64/libbtnv.so
 vendor/lib64/libbt-hidlclient.so
-vendor/lib64/libbtnv.so
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 
-# ANT+ (system) - from enchilada - PKQ1.180716.001
-lib64/com.qualcomm.qti.ant@1.0.so|199481b290856fb63f5c5bf6def426b43309becb
--lib64/libantradio.so|fb958cb68c99c71455f969afdf96225f5110f0df
-lib/com.qualcomm.qti.ant@1.0.so|fcd6a7130c480bfe4e4d9cc00702ed8444cddc82
--lib/libantradio.so|7506f2577f2f1068688b623ca85e432be9c3dac9
-
-# ANT+ (vendor)
+# Bluetooth (ANT+)
+-lib/com.qualcomm.qti.ant@1.0.so
+-lib/libantradio.so
+-lib64/com.qualcomm.qti.ant@1.0.so
+-lib64/libantradio.so
+vendor/lib/com.qualcomm.qti.ant@1.0.so
+vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
+vendor/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
-vendor/lib64/com.qualcomm.qti.ant@1.0_vendor.so
 
 # Bluetooth aptX - from taimen PQ2A.190205.002
 lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
 lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
 
 # Bluetooth (Audio)
-vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
+-lib/vendor.qti.hardware.fm@1.0.so
+lib64/libaptX_encoder.so
+lib64/libaptXHD_encoder.so
+-lib64/vendor.qti.hardware.fm@1.0.so
+vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
+vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
-vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so
-vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
+vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
+vendor/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
 
 # Charger
 vendor/bin/hvdcp_opti
