@@ -63,8 +63,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     qcom.bluetooth.soc=cherokee \
     vendor.qcom.bluetooth.soc=cherokee \
     ro.bluetooth.a4wp=false \
-    ro.bluetooth.emb_wp_mode=true \
-    ro.bluetooth.wipower=true \
+    ro.bluetooth.emb_wp_mode=false \
+    ro.bluetooth.wipower=false \
     bt.max.hfpclient.connections=1 
 
 # Camera
