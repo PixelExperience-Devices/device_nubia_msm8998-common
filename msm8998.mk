@@ -422,7 +422,7 @@ PRODUCT_PACKAGES += \
 -include $(LOCAL_PATH)/vendor_prop.mk
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2018-02-01
+VENDOR_SECURITY_PATCH := 2018-06-05
 
 # Verity
 PRODUCT_SUPPORTS_BOOT_SIGNER := true
