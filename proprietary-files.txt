@@ -423,11 +423,17 @@ vendor/bin/msm_irqbalance|7ce3f35f7e0f12af1e2d36aa095d56a5ec88c51e
 vendor/lib/libqti-perfd-client.so|f277daf9632b4d4c22a27abec2c4d0ccf776892d
 vendor/lib64/libqti-perfd-client.so|eaf678de5d7d0de194a263db1835b1f582452419
 
-# Peripheral manager - from MI 8 Lite platina-user 9 PKQ1.181007.001 8.12.13 release-keys
-vendor/bin/pm-proxy|e5f8c69e8d231dd2665dc411b4e9d9e696c90187
-vendor/bin/pm-service|d9fefe2b7fec574ac4eb70a29303eeec819e449d
-vendor/lib/libperipheral_client.so|27b655cf18a1282594e5c91376b705fe31db6dab
-vendor/lib64/libperipheral_client.so|c4b0cb11e908b234a54a9f212c42ff4c37e37391
+# Peripheral manager
+vendor/bin/pm-proxy
+vendor/bin/pm-service
+vendor/lib/libperipheral_client.so
+vendor/lib64/libperipheral_client.so
+
+# PLAYready
+vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so
+vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
+vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so
+vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
 
 # QMI - from MI 8 Lite platina-user 9 PKQ1.181007.001 8.12.13 release-keys
 etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
@@ -571,40 +577,49 @@ vendor/lib64/vendor.qti.imsrtpservice@1.0.so|7ba73cb608b8279094912ee7f6c47b90ec4
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so|a6924fdc270404b4a0a5a86a414159fd28861960
 vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so|4cb6683a36ad11b18632fe99d7031e6a3c9a1b9b
 
-# Secure Processor SubSystem
-vendor/bin/spdaemon
-vendor/lib/libspcom.so
+# Secure Processor SubSystem	
+vendor/bin/spdaemon	
+vendor/lib/libspcom.so	
 vendor/lib64/libspcom.so
 
 # Sensors
-lib/libqmi_cci_system.so
-lib/sensors.hal.tof.so
-lib64/libqmi_cci_system.so
-lib64/sensors.hal.tof.so
-vendor/bin/sensors.qcom:vendor/bin/sensors.qti
-vendor/etc/sensors/hals.conf
+vendor/bin/sensors.qti
+vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
+vendor/etc/sensors/hals.conf	
 vendor/etc/sensors/sensor_def_qcomdev.conf
--vendor/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
+vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml
+vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc
+-framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar:vendor/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
+lib/libqmi_cci_system.so
+lib/libsensor_reg.so
+lib/libsensor1.so
+lib64/libqmi_cci_system.so
+lib64/libsensor_reg.so
+lib64/libsensor1.so
 vendor/lib/hw/activity_recognition.msm8998.so
 vendor/lib/libsensor_reg.so
 vendor/lib/libsensor1.so
+vendor/lib/libsensorcal.so
 vendor/lib/libsns_low_lat_stream_stub.so
 vendor/lib/sensors.ssc.so
-vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
+lib/vendor.qti.hardware.sensorscalibrate@1.0.so:vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
+vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 vendor/lib64/hw/activity_recognition.msm8998.so
 vendor/lib64/libsensor_reg.so
 vendor/lib64/libsensor1.so
+vendor/lib64/libsensorcal.so
 vendor/lib64/libsns_low_lat_stream_stub.so
-vendor/lib64/sensors.oem.so
 vendor/lib64/sensors.ssc.so
-vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
+vendor/lib64/sensors.oem.so
+lib64/vendor.qti.hardware.sensorscalibrate@1.0.so:vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
+vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 
-# Thermal - from daisy - PKQ1.180917.001.V10.0.3.0.PDLMIXM
+# Thermal 
 vendor/etc/thermal-engine.conf
-vendor/bin/thermal-engine|e24c041613a4a522e15d54f700e1d1befe7e171e
--vendor/lib64/libthermalclient.so|796c3e071fe9d6fa57598e1205a762cb55720f88
-vendor/lib64/libthermalioctl.so|5c126fa39bd8fbdb456c661be36e16ae5c6c3ec0
--vendor/lib/libthermalclient.so|390eda2d80df6825c09eb504f0630650ea2d30f7
+vendor/bin/thermal-engine
+-vendor/lib64/libthermalclient.so
+vendor/lib64/libthermalioctl.so
+-vendor/lib/libthermalclient.so
 
 
 # Time services - from MI 8 Lite platina-user 9 PKQ1.181007.001 8.12.13 release-keys
@@ -612,10 +627,16 @@ vendor/lib64/libthermalioctl.so|5c126fa39bd8fbdb456c661be36e16ae5c6c3ec0
 vendor/bin/time_daemon|9fd464e3f356fcd4f4db6a4c9a1383d8210cb67b
 vendor/lib64/libtime_genoff.so|8f4c1f9ace6af463b241b130d6872b5d39cc7b2a
 
-# Voice fingerprint
-vendor/bin/qvop-daemon
-vendor/lib/libqvop-service.so
-vendor/lib64/libqvop-service.so
+# TUI
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
+vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
+lib/vendor.qti.hardware.tui_comm@1.0.so:vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
+lib64/vendor.qti.hardware.tui_comm@1.0.so:vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
+
+# Voiceprint
+framework/vendor.qti.voiceprint-V1.0-java.jar
+lib/vendor.qti.voiceprint@1.0.so:vendor/lib/vendor.qti.voiceprint@1.0.so
+lib64/vendor.qti.voiceprint@1.0.so:vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # Wi-Fi
 vendor/bin/cnss-daemon
@@ -664,7 +685,8 @@ vendor/lib/libwfdhdcpcp.so
 vendor/lib/libwfdmmservice.so
 vendor/lib/libwfdmodulehdcpsession.so
 
-# Widevine - from daisy - PKQ1.180917.001.V10.0.3.0.PDLMIXM
-vendor/bin/hw/android.hardware.drm@1.1-service.widevine|9743c4ecd0fb8773795bcbfbb406f25616c04129
-vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc|458dd241f5f8536eccb57f012b3eba0061736e8e
-vendor/lib64/libwvhidl.so|a3444ac0deb8144a08ba2ed1dad2f2369096c7af
+# Widevine
+vendor/bin/hw/android.hardware.drm@1.1-service.widevine
+vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
+vendor/lib/libcppf.so
+vendor/lib64/libwvhidl.so
